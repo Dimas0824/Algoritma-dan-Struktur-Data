@@ -11,7 +11,11 @@ class Buku {
     }
 
     void terjual(int jml) {
-        stok -= jml;
+        if (stok > 0 && stok >= jml) {
+            stok -= jml;
+        } else {
+            System.out.println("Stok buku " + judul + " sudah habis.");
+        }
     }
 
     void restock(int jml) {
