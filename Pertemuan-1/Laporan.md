@@ -52,4 +52,30 @@
 
 # Percobaan 3: Membuat Konstruktor
 
+![alt text](docs/img/P3bk.png)
+![alt text](docs/img/P3bkMain.png)
+
 ## Pertanyaan
+
+1. Pada class Buku di Percobaan 3, tunjukkan baris kode program yang digunakan untuk
+   mendeklarasikan konstruktor berparameter!<br>
+   jawab: pada class Buku yang menjadi konstruktor berparameter adalah **public Buku(String jud, String pg, int hal, int stok, int har) {
+   judul = jud;
+   pengarang = pg;
+   halaman = hal;
+   this.stok = stok;
+   harga = har;
+   }**.
+
+2. Perhatikan class BukuMain. Apa sebenarnya yang dilakukan pada baris program berikut?
+   ![alt text](docs/img/SoalP3.png)<br>
+   jawab: baris program tersebut membuat objek baru dari class buku dengan nama bk2. objek bk2 memiliki nilai sebagai berikut: judul= Self Reward, pengarang= Maheera Ayesha, halaman= 160, stok= 29, harga= 59000.
+3. Hapus konstruktor default pada class Buku, kemudian compile dan run program. Bagaimana
+   hasilnya? Jelaskan mengapa hasilnya demikian!<br>
+   jawab:
+4. Setelah melakukan instansiasi object, apakah method di dalam class Buku harus diakses
+   secara berurutan? Jelaskan alasannya!<br>
+   jawab:
+5. Buat object baru dengan nama buku<NamaMahasiswa> menggunakan konstruktor
+   berparameter dari class Buku!<br>
+   jawab:
