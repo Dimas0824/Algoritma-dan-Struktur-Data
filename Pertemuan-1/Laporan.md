@@ -70,12 +70,11 @@
 2. Perhatikan class BukuMain. Apa sebenarnya yang dilakukan pada baris program berikut?
    ![alt text](docs/img/SoalP3.png)<br>
    jawab: baris program tersebut membuat objek baru dari class buku dengan nama bk2. objek bk2 memiliki nilai sebagai berikut: judul= Self Reward, pengarang= Maheera Ayesha, halaman= 160, stok= 29, harga= 59000.
-3. Hapus konstruktor default pada class Buku, kemudian compile dan run program. Bagaimana
-   hasilnya? Jelaskan mengapa hasilnya demikian!<br>
-   jawab:
+3. Hapus konstruktor default pada class Buku, kemudian compile dan run program. Bagaimana hasilnya? Jelaskan mengapa hasilnya demikian!<br>
+   jawab: Hasilnya akan menunjukkan error. The constructor Buku() is undifined. Hal itu bisa terjadi karena tidak ada konstruktor yang cocok dengan arguen yang diberikan. <br> ![alt text](docs/img/P3pertanyaan2.png)
 4. Setelah melakukan instansiasi object, apakah method di dalam class Buku harus diakses
    secara berurutan? Jelaskan alasannya!<br>
-   jawab:
+   jawab: Tidak, method di dalam class Buku tidak harus diakses secara berurutan. Akses terhadap method di dalam class Buku tidak bergantung pada urutan instansiasi object.
 5. Buat object baru dengan nama buku<NamaMahasiswa> menggunakan konstruktor
    berparameter dari class Buku!<br>
-   jawab:
+   jawab:![alt text](docs/img/P3pertanyaan5.png)

@@ -16,5 +16,9 @@ public class BukuMain20 {
         Buku bk2 = new Buku("Self Reward", "Maheera Ayesha", 160, 29, 59000);
         bk2.terjual(11);
         bk2.tampilInformasi();
+
+        Buku bukuDimas = new Buku("Algoritma dan Struktur Data", "Dimas", 500, 5, 100000);
+        bukuDimas.terjual(3);
+        bukuDimas.tampilInformasi();
     }
 }
