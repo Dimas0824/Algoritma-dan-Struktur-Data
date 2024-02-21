@@ -35,3 +35,21 @@
     jawab: agar pengguna hanya dibatasi dengan input nilai berupa bilangan bulat. <br><br>
 
 # Percobaan 2: Instansiasi Object, serta Mengakses Atribut dan Method
+
+![alt text](docs/img/Percobaan2.png)
+
+## pertanyaan
+
+1. Pada class BukuMain, tunjukkan baris kode program yang digunakan untuk proses instansiasi! Apa nama object yang dihasilkan?<br>
+   jawab: **Buku bk1 = new Buku();** adalah program yang digunakan untuk proses instasiasi. <br>
+   Dan nama objek yang dihasilkan adalah bk1. <br>
+   ![alt text](docs/img/P2pertanyaan1.png)
+
+2. Bagaimana cara mengakses atribut dan method dari suatu objek?<br>
+   jawab: cara memanggil atribut dan method dari suatu objek adalah dengan cara memanggil nama diikuti dengan titik (.) dan nama atribut atau nama method yang ingin dipanggil.
+3. Mengapa hasil output pemanggilan method tampilInformasi() pertama dan kedua berbeda?<br>
+   jawab: Karena method terjual() dan gantiHarga() mengubah nilai atribut stok dan harga.
+
+# Percobaan 3: Membuat Konstruktor
+
+## Pertanyaan
