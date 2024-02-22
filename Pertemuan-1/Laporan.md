@@ -81,7 +81,8 @@
 
 # Latihan Praktikum
 
-1.
+1. Latihan praktikum 1<br>
+   ![alt text](docs/Img/Buku20new.png)<br><br>
 2. Membuat program dengan nama class Dragon
    <br> **Code** <br>![alt text](docs/img/Dragon20.png)
    <br> **Output** <br>![alt text](docs/Img/OutputDragon20.png)
