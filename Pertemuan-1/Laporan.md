@@ -48,7 +48,7 @@
 2. Bagaimana cara mengakses atribut dan method dari suatu objek?<br>
    jawab: cara memanggil atribut dan method dari suatu objek adalah dengan cara memanggil nama diikuti dengan titik (.) dan nama atribut atau nama method yang ingin dipanggil.
 3. Mengapa hasil output pemanggilan method tampilInformasi() pertama dan kedua berbeda?<br>
-   jawab: Karena method terjual() dan gantiHarga() mengubah nilai atribut stok dan harga.
+   jawab: Karena method terjual() dan gantiHarga() mengubah nilai atribut stok dan harga.<br><br>
 
 # Percobaan 3: Membuat Konstruktor
 
@@ -77,4 +77,11 @@
    jawab: Tidak, method di dalam class Buku tidak harus diakses secara berurutan. Akses terhadap method di dalam class Buku tidak bergantung pada urutan instansiasi object.
 5. Buat object baru dengan nama buku<NamaMahasiswa> menggunakan konstruktor
    berparameter dari class Buku!<br>
-   jawab:![alt text](docs/img/P3pertanyaan5.png)
+   jawab:![alt text](docs/img/P3pertanyaan5.png) <br><br>
+
+# Latihan Praktikum
+
+1.
+2. Membuat program dengan nama class Dragon
+   <br> **Code** <br>![alt text](docs/img/Dragon20.png)
+   <br> **Output** <br>![alt text](docs/Img/OutputDragon20.png)
