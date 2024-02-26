@@ -1,7 +1,4 @@
 # Algoritma dan Struktur Data
-
-# Selamat Datang di Repositori Muhammad Irysad Dimas Abdillah.
-
 Selamat datang di repositori saya! Di sini, Anda akan menemukan berbagai proyek dan catatan terkait dengan Praktikum Algoritma dan Struktur Data saya di jurusan Teknik Informatika POLINEMA.
 
 ## Tentang Saya
