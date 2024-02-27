@@ -27,8 +27,24 @@ Output n = 13 <br> ![alt text](img/OutputP2n13.png) <br>
 
 # Praktikum Array
 
-<br> Kode <br>
+<br> Kode![alt text](img/PraktikumArray.png) <br>
+Ouput <br> ![alt text](img/OutputP.Array.png) <br>
 
 # Praktikum Fungsi
 
+<br> Kode![alt text](img/PraktikumFungsi.png) <br>
+Ouput<br> ![alt text](img/OutputFungsi.png) <br>
+
 # Tugas
+
+### Tugas 1
+
+Kode <br>![alt text](img/Tugas1Kode.png) <br>
+Output <br> ![<alt text>](img/OutputTugas1.png)<br>
+
+### Tugas 2
+
+Kode <br>![alt text](img/Tugas2Kode.png) <br>
+Output hitung Kecepatan <br> ![alt text](img/OutputTugas2Kec..png)<br>
+Output hitung Jarak <br>![alt text](img/OutputTugas2Jarak.png) <br>
+Output hitung Waktu <br>![alt text](img/OutputTugas2Waktu.png) <br>
