@@ -70,7 +70,21 @@ Output <br> ![alt text](Img/OutputP2.png)<br>
    jawab:
 
 ```java
-Produk[][] daftarProduk = new Produk[2][3];
+class Produk {
+    String nama;
+    double harga;
+
+    public Produk(String nama, double harga) {
+        this.nama = nama;
+        this.harga = harga;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Produk[][] daftarProduk = new Produk[2][3];
+
+        // Menginisialisasi objek-objek Produk ke dalam array 2 dimensi
         daftarProduk[0][0] = new Produk("Buku", 20.0);
         daftarProduk[0][1] = new Produk("Pensil", 5.0);
         daftarProduk[0][2] = new Produk("Penggaris", 7.5);
@@ -78,16 +92,30 @@ Produk[][] daftarProduk = new Produk[2][3];
         daftarProduk[1][0] = new Produk("Pensil Warna", 10.0);
         daftarProduk[1][1] = new Produk("Spidol", 8.0);
         daftarProduk[1][2] = new Produk("Kertas", 15.0);
+
+        // Menampilkan produk yang telah diinisialisasi
+        for (int i = 0; i < daftarProduk.length; i++) {
+            for (int j = 0; j < daftarProduk[i].length; j++) {
+                System.out.println("Nama Produk: " + daftarProduk[i][j].nama + ", Harga: " + daftarProduk[i][j].harga);
+            }
+        }
+    }
+}
+
 ```
 
-<br><br> 3. Jika diketahui terdapat class Persegi yang memiliki atribut sisi bertipe integer, maka kode dibawah ini akan memunculkan error saat dijalankan. Mengapa?<br>
+<br> pada contoh diatas merupakan implementasi dari array 2 dimensi pada objek "produk".
+
+<br>
+
+3. Jika diketahui terdapat class Persegi yang memiliki atribut sisi bertipe integer, maka kode dibawah ini akan memunculkan error saat dijalankan. Mengapa?<br>
 
 ```java
 Persegi[] pgArray = new Persegi[100];
 pgArray[5].sisi = 20;
 ```
 
-jawab: pada kode tersebut kita hanya memberikan alokasi memori untuk objek, namun belum membuat objek itu sendiri. Sehingga saat mencoba mengakses atribut sisi dari null, yang akan menghasilkan kesalahan NullPointerException. <br> <br>
+jawab: pada kode tersebut kita hanya memberikan alokasi memori untuk objek, namun belum membuat objek itu sendiri. Sehingga saat mencoba mengakses atribut sisi dari null, yang akan menghasilkan kesalahan NullPointerException. <br>
 
 4. Modifikasi kode program pada praktikum 3.3 agar length array menjadi inputan dengan Scanner! <br>
    jawab:
@@ -153,7 +181,7 @@ Output <br> ![alt text](Img/OutputP3.png)<br>
     }
    ```
 
-   <br><br>
+   <br>
 
 2. Jika diketahui terdapat class Segitiga seperti berikut ini:
 
@@ -181,7 +209,7 @@ public class Segitiga {
 }
 ```
 
-<br><br>
+<br>
 
 3. Tambahkan method hitungLuas() dan hitungKeliling() pada class Segitiga
    tersebut. Asumsi segitiga adalah segitiga siku-siku. (Hint: Anda dapat menggunakan bantuan
@@ -199,7 +227,7 @@ public class Segitiga {
     }
    ```
 
-   <br><br>
+   <br>
 
 4. Pada fungsi main, buat array Segitiga sgArray yang berisi 4 elemen, isikan masing-masing
    atributnya sebagai berikut:
@@ -222,7 +250,7 @@ public class SegitigaSgArray20 {
 }
 ```
 
-<br><br>
+<br>
 
 5. Kemudian menggunakan looping, cetak luas dan keliling dengan cara memanggil method
    hitungLuas() dan hitungKeliling().
@@ -248,7 +276,7 @@ public class SegitigaSgArray20 {
 }
 ```
 
-Output<br>![alt text](Img/OutputPertanyaan5P3.png)
+Output<br>![alt text](Img/OutputPertanyaan5P3.png)<br><br>
 
 # Latihan
 
