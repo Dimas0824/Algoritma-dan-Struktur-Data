@@ -419,6 +419,9 @@ public class ArrayofObjects20 {
 }
 ```
 
+**Output**<br>
+![alt text](Img/OutputLat1.png)
+
 <br><br>
 
 2. Sebuah kampus membutuhkan program untuk menampilkan informasi mahasiswa berupa nama, nim, jenis kelamin dan juga IPK mahasiswa. Program dapat menerima input semua informasi tersebut, kemudian menampilkanya kembali ke user. Implementasikan program tersebut jika
@@ -483,7 +486,101 @@ public class Mahasiswa20 {
 }
 ```
 
+**Output**<br>![alt text](Img/OutputLat2.png)
 <br>
 
 3. Modifikasi program Latihan no.2 di atas, sehingga bisa digunakan untuk menghitung rata-rata IPK, serta menampilkan data mahasiswa dengan IPK terbesar! (gunakan method untuk masing-masing proses tersebut) <br>
    jawab: <br>
+   **Main**
+
+```java
+package Latihan2;
+import java.util.Scanner;
+
+public class informasiMahasiswa20 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Mahasiswa20[] mahasiswa = new Mahasiswa20[3];
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Masukkan data mahasiswa ke-" + (i + 1));
+            System.out.print("Masukkan nama: ");
+            String nama = sc.nextLine();
+            System.out.print("Masukkan NIM: ");
+            String nim = sc.nextLine();
+            System.out.print("Masukkan Jenis Kelamin: ");
+            String jenisKelamin = sc.nextLine();
+            System.out.print("Masukkan IPK: ");
+            double ipk = sc.nextDouble();
+            sc.nextLine();
+
+            mahasiswa[i] = new Mahasiswa20(nama, nim, jenisKelamin, ipk);
+        }
+        System.out.println();
+
+        // Menampilkan informasi mahasiswa yang telah diinputkan
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Data Mahasiswa ke-" + (i + 1));
+            System.out.println("Nama: " + mahasiswa[i].nama);
+            System.out.println("NIM: " + mahasiswa[i].nim);
+            System.out.println("Jenis Kelamin: " + mahasiswa[i].jenisKelamin);
+            System.out.println("IPK: " + mahasiswa[i].ipk);
+        }
+
+        // Menghitung rata-rata IPK
+        System.out.println();
+        double rataIPK = Mahasiswa20.hitungRataIPK(mahasiswa);
+        System.out.println("Rata-rata IPK: " + rataIPK);
+        System.out.println();
+
+        // Menampilkan data mahasiswa dengan IPK terbesar
+        Mahasiswa20 terbaik = Mahasiswa20.mahasiswaTerbaik(mahasiswa);
+        System.out.println("Mahasiswa dengan IPK terbesar:");
+        System.out.println("Nama: " + terbaik.nama);
+        System.out.println("NIM: " + terbaik.nim);
+        System.out.println("Jenis Kelamin: " + terbaik.jenisKelamin);
+        System.out.println("IPK: " + terbaik.ipk);
+    }
+}
+```
+
+**Class mahasiswa**
+
+```java
+package Latihan2;
+
+public class Mahasiswa20 {
+    public String nama, nim, jenisKelamin;
+    public double ipk;
+
+    public Mahasiswa20(String nama, String nim, String jenisKelamin, double ipk) {
+        this.nama = nama;
+        this.nim = nim;
+        this.jenisKelamin = jenisKelamin;
+        this.ipk = ipk;
+    }
+
+    // Method untuk menghitung rata-rata IPK
+    public static double hitungRataIPK(Mahasiswa20[] mhs) {
+        double totalIPK = 0;
+        for (Mahasiswa20 mahasiswa : mhs) {
+            totalIPK += mahasiswa.ipk;
+        }
+        return totalIPK / mhs.length;
+    }
+
+    // Method untuk menampilkan data mahasiswa dengan IPK terbesar
+    public static Mahasiswa20 mahasiswaTerbaik(Mahasiswa20[] mhs) {
+        Mahasiswa20 terbaik = mhs[0];
+        for (Mahasiswa20 mahasiswa : mhs) {
+            if (mahasiswa.ipk > terbaik.ipk) {
+                terbaik = mahasiswa;
+            }
+        }
+        return terbaik;
+    }
+}
+```
+
+**Output**<br> ![alt text](Img/OutputLat3.png)

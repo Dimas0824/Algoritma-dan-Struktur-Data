@@ -33,5 +33,18 @@ public class informasiMahasiswa20 {
             System.out.println("IPK: " + mahasiswa[i].ipk);
         }
 
+        // Menghitung rata-rata IPK
+        System.out.println();
+        double rataIPK = Mahasiswa20.hitungRataIPK(mahasiswa);
+        System.out.println("Rata-rata IPK: " + rataIPK);
+        System.out.println();
+
+        // Menampilkan data mahasiswa dengan IPK terbesar
+        Mahasiswa20 terbaik = Mahasiswa20.mahasiswaTerbaik(mahasiswa);
+        System.out.println("Mahasiswa dengan IPK terbesar:");
+        System.out.println("Nama: " + terbaik.nama);
+        System.out.println("NIM: " + terbaik.nim);
+        System.out.println("Jenis Kelamin: " + terbaik.jenisKelamin);
+        System.out.println("IPK: " + terbaik.ipk);
     }
 }

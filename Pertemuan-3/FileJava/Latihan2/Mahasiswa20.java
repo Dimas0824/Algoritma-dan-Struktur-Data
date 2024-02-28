@@ -11,7 +11,7 @@ public class Mahasiswa20 {
         this.ipk = ipk;
     }
 
-    // method untuk rataIPK
+    // Method untuk menghitung rata-rata IPK
     public static double hitungRataIPK(Mahasiswa20[] mhs) {
         double totalIPK = 0;
         for (Mahasiswa20 mahasiswa : mhs) {
@@ -20,7 +20,7 @@ public class Mahasiswa20 {
         return totalIPK / mhs.length;
     }
 
-    // method untuk menampilkan data mahasiswa dengan IPK terbesar
+    // Method untuk menampilkan data mahasiswa dengan IPK terbesar
     public static Mahasiswa20 mahasiswaTerbaik(Mahasiswa20[] mhs) {
         Mahasiswa20 terbaik = mhs[0];
         for (Mahasiswa20 mahasiswa : mhs) {
