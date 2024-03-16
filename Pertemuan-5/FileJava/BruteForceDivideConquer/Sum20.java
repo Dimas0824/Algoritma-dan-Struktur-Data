@@ -1,18 +1,18 @@
 public class Sum20 {
     int elemen;
-    double keuntungan[], total;
+    double keuntungan[][], total[];
 
-    Sum20(int elemen) {
-        this.elemen = elemen;
-        this.keuntungan = new double[elemen];
-        this.total = 0;
+    Sum20(int perusahaan, int bulan) {
+        this.elemen = bulan;
+        this.keuntungan = new double[perusahaan][bulan];
+        this.total = new double[perusahaan];
     }
 
-    double totalBF(double arr[]) {
+    double totalBF(double arr[], int noPerusahaan) {
         for (int i = 0; i < elemen; i++) {
-            total = total + arr[i];
+            total[noPerusahaan] = total[noPerusahaan] + arr[i];
         }
-        return total;
+        return total[noPerusahaan];
     }
 
     double totalDC(double arr[], int l, int r) {
