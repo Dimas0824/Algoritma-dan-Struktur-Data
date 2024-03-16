@@ -115,7 +115,7 @@ public class Faktorial {
    jawab: **fakto \* = i;** merupakan singkatan dari faktor = fakto * i; yang berarti nilai 'fakto' akan dikali dengan 'i' pada setiap iterasi looping. Sedangkan \*\*fakto = n*faktorialDC(n-1);\*\* merupakan operasi rekursif untuk menghhitung nilai faktorial. Operasi akan menghitung dengan mengkalikan 'n' dengan nilai faktorial 'n-1' yang terus berlanjut hingga mencapai base case.
    <br><br>
 
-# Percobaan 2 Menghitung Hasil Pangkat dengan Algoritma Brute Force dan Divide and Conquer
+# Percobaan 2: Menghitung Hasil Pangkat dengan Algoritma Brute Force dan Divide and Conquer
 
 Code<br>
 
@@ -333,7 +333,7 @@ Output<br>![alt text](Img/OptPertanyaan4P2.png)
 
 <br><br>
 
-# Percobaan 3 Menghitung Sum Array dengan Algoritma Brute Force dan Divide and Conquer
+# Percobaan 3: Menghitung Sum Array dengan Algoritma Brute Force dan Divide and Conquer
 
 Code<br>
 
