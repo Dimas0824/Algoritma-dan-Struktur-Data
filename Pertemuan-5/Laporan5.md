@@ -509,7 +509,7 @@ public class dataMobil20 {
     String merk[] = { "BMW", "Ford", "Nissan", "Subaru", "Toyota", "Volkswagen" };
     String tipe[] = { "M2 Coupe", "Fiesta ST", "370Z", "BRZ", "Impreza WRX STI", "AE86 Trueno", "86/GT86", "Golf GTI" };
     int tahun[] = { 2016, 2014, 2009, 2014, 2013, 1986, 2014, 2014 };
-    int topAcceleration[] = { 6816, 3291, 4360, 4058, 6255, 3700, 4180, 4180 };
+    int topAcceleration[] = { 6816, 3921, 4360, 4058, 6255, 3700, 4180, 4180 };
     int topPower[] = { 728, 575, 657, 609, 703, 553, 609, 631 };
 
     int maxAcceleration(int arr[], int l, int r) {
@@ -554,7 +554,7 @@ public class dataMobil20 {
     String merk[] = { "BMW", "Ford", "Nissan", "Subaru", "Toyota", "Volkswagen" };
     String tipe[] = { "M2 Coupe", "Fiesta ST", "370Z", "BRZ", "Impreza WRX STI", "AE86 Trueno", "86/GT86", "Golf GTI" };
     int tahun[] = { 2016, 2014, 2009, 2014, 2013, 1986, 2014, 2014 };
-    int topAcceleration[] = { 6816, 3291, 4360, 4058, 6255, 3700, 4180, 4180 };
+    int topAcceleration[] = { 6816, 3921, 4360, 4058, 6255, 3700, 4180, 4180 };
     int topPower[] = { 728, 575, 657, 609, 703, 553, 609, 631 };
 
     int maxAcceleration(int arr[], int l, int r) {
@@ -619,7 +619,7 @@ public class dataMobil20 {
     String merk[] = { "BMW", "Ford", "Nissan", "Subaru", "Toyota", "Volkswagen" };
     String tipe[] = { "M2 Coupe", "Fiesta ST", "370Z", "BRZ", "Impreza WRX STI", "AE86 Trueno", "86/GT86", "Golf GTI" };
     int tahun[] = { 2016, 2014, 2009, 2014, 2013, 1986, 2014, 2014 };
-    int topAcceleration[] = { 6816, 3291, 4360, 4058, 6255, 3700, 4180, 4180 };
+    int topAcceleration[] = { 6816, 3921, 4360, 4058, 6255, 3700, 4180, 4180 };
     int topPower[] = { 728, 575, 657, 609, 703, 553, 609, 631 };
 
     int maxAcceleration(int arr[], int l, int r) {
@@ -684,4 +684,4 @@ public class mainMobil20 {
 
 ```
 
-OUPUT: <br>![alt text](Img/OtpLatC.png)
+OUTPUT: <br>![alt text](Img/OtpLatC.png)
