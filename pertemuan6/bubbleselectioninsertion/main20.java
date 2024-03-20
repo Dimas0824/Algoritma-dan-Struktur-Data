@@ -16,12 +16,16 @@ public class main20 {
         System.out.println("Data mahasiswa sebelum sorting = ");
         list.tampil();
 
-        System.out.println("Data mahasiswa setelah sorting desc berdasarkan ipk");
+        System.out.println("Data mahasiswa setelah sorting desc berdasarkan IPK");
         list.bubbleSort();
         list.tampil();
 
-        System.out.println("Data mahasiswa setelah sorting asc berdasarkan ipk");
+        System.out.println("Data mahasiswa setelah sorting asc berdasarkan IPK");
         list.selectionSort();
+        list.tampil();
+
+        System.out.println("Data mahasiswa setelah sorting asc berdasarkan IPK");
+        list.insertionSort();
         list.tampil();
     }
 }

@@ -21,20 +21,20 @@ Code<br>
 public class mahasiswa {
     String nama;
     int thnMasuk, umur;
-    double ipk;
+    double IPK;
 
     mahasiswa(String n, int t, int u, double i) {
         nama = n;
         thnMasuk = t;
         umur = u;
-        ipk = i;
+        IPK = i;
     }
 
     void tampil() {
         System.out.println("Nama: " + nama);
         System.out.println("Tahun Masuk: " + thnMasuk);
         System.out.println("Umur: " + umur);
-        System.out.println("IPK: " + ipk);
+        System.out.println("IPK: " + IPK);
     }
 }
 
@@ -64,7 +64,7 @@ public class DaftarMahasiswaBerprestasi20 {
     void bubbleSort() {
         for (int i = 0; i < listMhs.length - 1; i++) {
             for (int j = 1; j < listMhs.length - i; j++) {
-                if (listMhs[j].ipk > listMhs[j - 1].ipk) { // descending
+                if (listMhs[j].IPK > listMhs[j - 1].IPK) { // descending
                     mahasiswa temp = listMhs[j];
                     listMhs[j] = listMhs[j - 1];
                     listMhs[j - 1] = temp;
@@ -95,7 +95,7 @@ public class main20 {
         System.out.println("Data mahasiswa sebelum sorting = ");
         list.tampil();
 
-        System.out.println("Data mahasiswa setelah sorting desc berdasarkan ipk");
+        System.out.println("Data mahasiswa setelah sorting desc berdasarkan IPK");
         list.bubbleSort();
         list.tampil();
     }
@@ -104,7 +104,7 @@ public class main20 {
 
 Output <br>![alt text](Img/P1.1.png) <br>![alt text](Img/P1.2.png)
 
-# Pertanyaan
+## Pertanyaan
 
 1. Terdapat di method apakah proses bubble sort?<br>
    jawab: Proses bubble sort terdapat pada method 'bubbleSort' pada class DaftarMahasiswaBerprestasi20 <br>
@@ -127,6 +127,205 @@ Output <br>![alt text](Img/P1.1.png) <br>![alt text](Img/P1.2.png)
 # Percobaan 2: Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Selection Sort
 
 Code<br>
+
+```java
+public class DaftarMahasiswaBerprestasi20 {
+    mahasiswa[] listMhs = new mahasiswa[5];
+    int idx;
+
+    void tambah(mahasiswa m) {
+        if (idx < listMhs.length) {
+            listMhs[idx] = m;
+            idx++;
+        } else {
+            System.out.println("Data sudah penuh");
+        }
+    }
+
+    void tampil() {
+        for (mahasiswa m : listMhs) {
+            m.tampil();
+            System.out.println("------------------------------");
+        }
+    }
+
+    void bubbleSort() {
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            for (int j = 1; j < listMhs.length - i; j++) {
+                if (listMhs[j].IPK > listMhs[j - 1].IPK) { // descending
+                    mahasiswa temp = listMhs[j];
+                    listMhs[j] = listMhs[j - 1];
+                    listMhs[j - 1] = temp;
+                }
+            }
+        }
+    }
+
+    void selectionSort() {
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            int idxMin = i;
+            for (int j = i + 1; j < listMhs.length; j++) {
+                if (listMhs[j].IPK < listMhs[idxMin].IPK) { // ascending
+                    idxMin = j;
+                }
+            }
+            // swap
+            mahasiswa temp = listMhs[i];
+            listMhs[i] = listMhs[idxMin];
+            listMhs[idxMin] = temp;
+        }
+    }
+}
+
+```
+
+```java
+public class main20 {
+    public static void main(String[] args) {
+        DaftarMahasiswaBerprestasi20 list = new DaftarMahasiswaBerprestasi20();
+        mahasiswa m1 = new mahasiswa("Nusa", 2017, 25, 3);
+        mahasiswa m2 = new mahasiswa("Rara", 2012, 19, 4);
+        mahasiswa m3 = new mahasiswa("Dompu", 2018, 19, 3.5);
+        mahasiswa m4 = new mahasiswa("Abdul", 2017, 23, 2);
+        mahasiswa m5 = new mahasiswa("Ummi", 2019, 21, 3.75);
+
+        list.tambah(m1);
+        list.tambah(m2);
+        list.tambah(m3);
+        list.tambah(m4);
+        list.tambah(m5);
+
+        System.out.println("Data mahasiswa sebelum sorting = ");
+        list.tampil();
+
+        System.out.println("Data mahasiswa setelah sorting desc berdasarkan IPK");
+        list.bubbleSort();
+        list.tampil();
+
+        System.out.println("Data mahasiswa setelah sorting asc berdasarkan IPK");
+        list.selectionSort();
+        list.tampil();
+    }
+}
+```
+
+Output <br> ![alt text](Img/P1.1.png) <br> ![alt text](Img/p2.png) <br>
+
+## Pertanyaan
+
+1. Di dalam method selection sort, terdapat baris program seperti di bawah ini: <br>
+   ![alt text](Img/soalp2.png) <br>
+   Untuk apakah proses tersebut, jelaskan! <br>
+   jawab:
+
+# Percobaan 3: Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Insertion Sort
+
+Code<br>
+
+```java
+public class DaftarMahasiswaBerprestasi20 {
+    mahasiswa[] listMhs = new mahasiswa[5];
+    int idx;
+
+    void tambah(mahasiswa m) {
+        if (idx < listMhs.length) {
+            listMhs[idx] = m;
+            idx++;
+        } else {
+            System.out.println("Data sudah penuh");
+        }
+    }
+
+    void tampil() {
+        for (mahasiswa m : listMhs) {
+            m.tampil();
+            System.out.println("------------------------------");
+        }
+    }
+
+    void bubbleSort() {
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            for (int j = 1; j < listMhs.length - i; j++) {
+                if (listMhs[j].IPK > listMhs[j - 1].IPK) { // descending
+                    mahasiswa temp = listMhs[j];
+                    listMhs[j] = listMhs[j - 1];
+                    listMhs[j - 1] = temp;
+                }
+            }
+        }
+    }
+
+    void selectionSort() {
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            int idxMin = i;
+            for (int j = i + 1; j < listMhs.length; j++) {
+                if (listMhs[j].IPK < listMhs[idxMin].IPK) { // ascending
+                    idxMin = j;
+                }
+            }
+            // swap
+            mahasiswa temp = listMhs[i];
+            listMhs[i] = listMhs[idxMin];
+            listMhs[idxMin] = temp;
+        }
+    }
+
+        void insertionSort() {
+        for (int i = 1; i < listMhs.length; i++) {
+            mahasiswa temp = listMhs[i];
+            int j = i;
+            while (j > 0 && listMhs[j - 1].umur > temp.umur) {
+                listMhs[j] = listMhs[j - 1];
+                j--;
+            }
+            listMhs[j] = temp;
+        }
+    }
+}
+
+```
+
+```java
+public class main20 {
+    public static void main(String[] args) {
+        DaftarMahasiswaBerprestasi20 list = new DaftarMahasiswaBerprestasi20();
+        mahasiswa m1 = new mahasiswa("Nusa", 2017, 25, 3);
+        mahasiswa m2 = new mahasiswa("Rara", 2012, 19, 4);
+        mahasiswa m3 = new mahasiswa("Dompu", 2018, 19, 3.5);
+        mahasiswa m4 = new mahasiswa("Abdul", 2017, 23, 2);
+        mahasiswa m5 = new mahasiswa("Ummi", 2019, 21, 3.75);
+
+        list.tambah(m1);
+        list.tambah(m2);
+        list.tambah(m3);
+        list.tambah(m4);
+        list.tambah(m5);
+
+        System.out.println("Data mahasiswa sebelum sorting = ");
+        list.tampil();
+
+        System.out.println("Data mahasiswa setelah sorting desc berdasarkan IPK");
+        list.bubbleSort();
+        list.tampil();
+
+        System.out.println("Data mahasiswa setelah sorting asc berdasarkan IPK");
+        list.selectionSort();
+        list.tampil();
+
+        System.out.println("Data mahasiswa setelah sorting asc berdasarkan IPK");
+        list.insertionSort();
+        list.tampil();
+    }
+}
+```
+
+Output <br>![alt text](Img/P1.1.png) <br> ![alt text](Img/p2.png) <br> ![alt text](Img/p2.png) <br>
+
+## Pertanyaan
+
+1. Ubahlah fungsi pada InsertionSort sehingga fungsi ini dapat melaksanakan proses sorting dengan cara descending. <br>
+   jawab:
+   CODE
 
 ```java
 public class DaftarMahasiswaBerprestasi20 {
@@ -175,55 +374,19 @@ public class DaftarMahasiswaBerprestasi20 {
             listMhs[idxMin] = temp;
         }
     }
-}
 
-```
-
-```java
-public class main20 {
-    public static void main(String[] args) {
-        DaftarMahasiswaBerprestasi20 list = new DaftarMahasiswaBerprestasi20();
-        mahasiswa m1 = new mahasiswa("Nusa", 2017, 25, 3);
-        mahasiswa m2 = new mahasiswa("Rara", 2012, 19, 4);
-        mahasiswa m3 = new mahasiswa("Dompu", 2018, 19, 3.5);
-        mahasiswa m4 = new mahasiswa("Abdul", 2017, 23, 2);
-        mahasiswa m5 = new mahasiswa("Ummi", 2019, 21, 3.75);
-
-        list.tambah(m1);
-        list.tambah(m2);
-        list.tambah(m3);
-        list.tambah(m4);
-        list.tambah(m5);
-
-        System.out.println("Data mahasiswa sebelum sorting = ");
-        list.tampil();
-
-        System.out.println("Data mahasiswa setelah sorting desc berdasarkan ipk");
-        list.bubbleSort();
-        list.tampil();
-
-        System.out.println("Data mahasiswa setelah sorting asc berdasarkan ipk");
-        list.selectionSort();
-        list.tampil();
+    void insertionSort() {
+        for (int i = 1; i < listMhs.length; i++) {
+            mahasiswa temp = listMhs[i];
+            int j = i;
+            while (j > 0 && listMhs[j - 1].ipk < temp.ipk) { //rubah menjadi descending
+                listMhs[j] = listMhs[j - 1];
+                j--;
+            }
+            listMhs[j] = temp;
+        }
     }
 }
 ```
 
-Output <br> ![alt text](Img/P1.1.png) <br> ![alt text](Img/p2.png) <br>
-
-# Pertanyaan
-
-1. Di dalam method selection sort, terdapat baris program seperti di bawah ini: <br>
-   ![alt text](Img/soalp2.png) <br>
-   Untuk apakah proses tersebut, jelaskan! <br>
-   jawab:
-
-# Percobaan 3: Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Insertion Sort
-
-Code<br>
-
-```java
-
-```
-
-Output <br>
+OUTPUT <br> ![alt text](Img/P1.1.png) <br> ![alt text](Img/p2.png) <br> ![alt text](Img/Otpsoalp3.png)<br>
