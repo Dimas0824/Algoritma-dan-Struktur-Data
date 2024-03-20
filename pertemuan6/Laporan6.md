@@ -104,15 +104,119 @@ public class main20 {
 
 Output <br>![alt text](Img/P1.1.png) <br>![alt text](Img/P1.2.png)
 
+# Pertanyaan
+
+1. Terdapat di method apakah proses bubble sort?<br>
+   jawab: Proses bubble sort terdapat pada method 'bubbleSort' pada class DaftarMahasiswaBerprestasi20 <br>
+
+2. Di dalam method bubbleSort(), terdapat baris program seperti di bawah ini: <br>
+   ![alt text](image.png) <br>
+   Untuk apakah proses tersebut?<br>
+   jawab: Proses tersebut adalah untuk menukar posisi kedua elemen dalam array listMhs. Penukaran posisi dilakukan berdasarkan nilai IPK dari kedua elemen yang dibandingkan. <br>
+3. Perhatikan perulangan di dalam bubbleSort() di bawah ini: <br>
+   ![alt text](Img/soalp1.3.png) <br>
+   a. Apakah perbedaan antara kegunaan perulangan i dan perulangan j? <br>
+   jawab: perulangan i digunakan sebagai kontrol jumlah iterasi keseluruhan bubble sort, perulangan ini akan berjalan sebanyak jumlah elemen array. sedangkan perulangan j melakukan kontrol dalam perbandingan elemen dalam setiap iterasi. perulangan dimulai dari indeks ke-2 hingga terakhir dikurangi dengan nilai i (listMhs.length - i). <br>
+   b. Mengapa syarat dari perulangan i adalah i<listMhs.length-1 ? <br>
+   jawab: syarat tersebut digunakan agar perulangan tidak melebihi batas array. perulangan i harus berhenti sebelum indeks terakhir karena indeks terakhir sudah dibandingkan dengan indeks sebelumnya. <br>
+   c. Mengapa syarat dari perulangan j adalah j<listMhs.length-i ? <br>
+   jawab: Syarat tersebut digunakan agar perulangan tidak membandingkan indeks yang sudah dibandingan pada iterasi sebelumnya. <br>
+   d. Jika banyak data di dalam listMhs adalah 50, maka berapakali perulangan i akan berlangsung? Dan ada berapa Tahap bubble sort yang ditempuh? <br>
+   jawab: maka perulangan i akan berjalan sebanyak 49 kali. <br>
+
 # Percobaan 2: Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Selection Sort
 
 Code<br>
 
 ```java
+public class DaftarMahasiswaBerprestasi20 {
+    mahasiswa[] listMhs = new mahasiswa[5];
+    int idx;
+
+    void tambah(mahasiswa m) {
+        if (idx < listMhs.length) {
+            listMhs[idx] = m;
+            idx++;
+        } else {
+            System.out.println("Data sudah penuh");
+        }
+    }
+
+    void tampil() {
+        for (mahasiswa m : listMhs) {
+            m.tampil();
+            System.out.println("------------------------------");
+        }
+    }
+
+    void bubbleSort() {
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            for (int j = 1; j < listMhs.length - i; j++) {
+                if (listMhs[j].ipk > listMhs[j - 1].ipk) { // descending
+                    mahasiswa temp = listMhs[j];
+                    listMhs[j] = listMhs[j - 1];
+                    listMhs[j - 1] = temp;
+                }
+            }
+        }
+    }
+
+    void selectionSort() {
+        for (int i = 0; i < listMhs.length - 1; i++) {
+            int idxMin = i;
+            for (int j = i + 1; j < listMhs.length; j++) {
+                if (listMhs[j].ipk < listMhs[idxMin].ipk) { // ascending
+                    idxMin = j;
+                }
+            }
+            // swap
+            mahasiswa temp = listMhs[i];
+            listMhs[i] = listMhs[idxMin];
+            listMhs[idxMin] = temp;
+        }
+    }
+}
 
 ```
 
-Output <br>
+```java
+public class main20 {
+    public static void main(String[] args) {
+        DaftarMahasiswaBerprestasi20 list = new DaftarMahasiswaBerprestasi20();
+        mahasiswa m1 = new mahasiswa("Nusa", 2017, 25, 3);
+        mahasiswa m2 = new mahasiswa("Rara", 2012, 19, 4);
+        mahasiswa m3 = new mahasiswa("Dompu", 2018, 19, 3.5);
+        mahasiswa m4 = new mahasiswa("Abdul", 2017, 23, 2);
+        mahasiswa m5 = new mahasiswa("Ummi", 2019, 21, 3.75);
+
+        list.tambah(m1);
+        list.tambah(m2);
+        list.tambah(m3);
+        list.tambah(m4);
+        list.tambah(m5);
+
+        System.out.println("Data mahasiswa sebelum sorting = ");
+        list.tampil();
+
+        System.out.println("Data mahasiswa setelah sorting desc berdasarkan ipk");
+        list.bubbleSort();
+        list.tampil();
+
+        System.out.println("Data mahasiswa setelah sorting asc berdasarkan ipk");
+        list.selectionSort();
+        list.tampil();
+    }
+}
+```
+
+Output <br> ![alt text](Img/P1.1.png) <br> ![alt text](Img/p2.png) <br>
+
+# Pertanyaan
+
+1. Di dalam method selection sort, terdapat baris program seperti di bawah ini: <br>
+   ![alt text](Img/soalp2.png) <br>
+   Untuk apakah proses tersebut, jelaskan! <br>
+   jawab:
 
 # Percobaan 3: Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Insertion Sort
 
