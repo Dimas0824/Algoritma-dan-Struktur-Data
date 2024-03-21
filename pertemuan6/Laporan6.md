@@ -13,6 +13,8 @@
 <p align = "center"> Prodi: TEKNIK INFOMATIKA</p>
 <p align = "center"> Kelas: 1B </p>
 
+<br><br><br>
+
 # Percobaan 1: Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Bubble Sort
 
 Code<br>
@@ -124,6 +126,8 @@ Output <br>![alt text](Img/P1.1.png) <br>![alt text](Img/P1.2.png)
    d. Jika banyak data di dalam listMhs adalah 50, maka berapakali perulangan i akan berlangsung? Dan ada berapa Tahap bubble sort yang ditempuh? <br>
    jawab: maka perulangan i akan berjalan sebanyak 49 kali. <br>
 
+   <br><br>
+
 # Percobaan 2: Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Selection Sort
 
 Code<br>
@@ -216,7 +220,8 @@ Output <br> ![alt text](Img/P1.1.png) <br> ![alt text](Img/p2.png) <br>
 1. Di dalam method selection sort, terdapat baris program seperti di bawah ini: <br>
    ![alt text](Img/soalp2.png) <br>
    Untuk apakah proses tersebut, jelaskan! <br>
-   jawab:
+   jawab: Kode program dtersebut digunakan untuk mencari nilai IPK terkecil yang ada dalam array listMhs dengan melakukan perbandingan pada setiap indeks pada array-nya. <br>
+   <br><br><br>
 
 # Percobaan 3: Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Insertion Sort
 
@@ -351,7 +356,7 @@ public class DaftarMahasiswaBerprestasi20 {
     void bubbleSort() {
         for (int i = 0; i < listMhs.length - 1; i++) {
             for (int j = 1; j < listMhs.length - i; j++) {
-                if (listMhs[j].ipk > listMhs[j - 1].ipk) { // descending
+                if (listMhs[j].ipk < listMhs[j - 1].ipk) { // ascending
                     mahasiswa temp = listMhs[j];
                     listMhs[j] = listMhs[j - 1];
                     listMhs[j - 1] = temp;
@@ -379,7 +384,7 @@ public class DaftarMahasiswaBerprestasi20 {
         for (int i = 1; i < listMhs.length; i++) {
             mahasiswa temp = listMhs[i];
             int j = i;
-            while (j > 0 && listMhs[j - 1].ipk < temp.ipk) { //rubah menjadi descending
+            while (j > 0 && listMhs[j - 1].ipk < temp.ipk) { // rubah menjadi descending
                 listMhs[j] = listMhs[j - 1];
                 j--;
             }
@@ -389,7 +394,7 @@ public class DaftarMahasiswaBerprestasi20 {
 }
 ```
 
-OUTPUT <br> ![alt text](Img/P1.1.png) <br> ![alt text](Img/p2.png) <br> ![alt text](Img/Otpsoalp3.png)<br>
+OUTPUT <br> ![alt text](Img/P1.1.png) <br> ![alt text](Img/P3.png) <br><br><br>
 
 # Latihan Praktikum
 

@@ -21,7 +21,7 @@ public class DaftarMahasiswaBerprestasi20 {
     void bubbleSort() {
         for (int i = 0; i < listMhs.length - 1; i++) {
             for (int j = 1; j < listMhs.length - i; j++) {
-                if (listMhs[j].ipk > listMhs[j - 1].ipk) { // descending
+                if (listMhs[j].ipk < listMhs[j - 1].ipk) { // ascending
                     mahasiswa temp = listMhs[j];
                     listMhs[j] = listMhs[j - 1];
                     listMhs[j - 1] = temp;
