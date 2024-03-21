@@ -110,7 +110,7 @@ Output <br>![alt text](Img/P1.1.png) <br>![alt text](Img/P1.2.png)
    jawab: Proses bubble sort terdapat pada method 'bubbleSort' pada class DaftarMahasiswaBerprestasi20 <br>
 
 2. Di dalam method bubbleSort(), terdapat baris program seperti di bawah ini: <br>
-   ![alt text](image.png) <br>
+   ![alt text](Img/soalp1.2.png) <br>
    Untuk apakah proses tersebut?<br>
    jawab: Proses tersebut adalah untuk menukar posisi kedua elemen dalam array listMhs. Penukaran posisi dilakukan berdasarkan nilai IPK dari kedua elemen yang dibandingkan. <br>
 3. Perhatikan perulangan di dalam bubbleSort() di bawah ini: <br>
@@ -390,3 +390,177 @@ public class DaftarMahasiswaBerprestasi20 {
 ```
 
 OUTPUT <br> ![alt text](Img/P1.1.png) <br> ![alt text](Img/p2.png) <br> ![alt text](Img/Otpsoalp3.png)<br>
+
+# Latihan Praktikum
+
+Sebuah platform travel yang menyediakan layanan pemesanan kebutuhan travelling sedang mengembangkan backend untuk sistem pemesanan/reservasi akomodasi (penginapan), salah satu fiturnya adalah menampilkan daftar penginapan yang tersedia berdasarkan pilihan filter yang diinginkan user. Daftar penginapan ini harus dapat disorting berdasarkan: <br>
+
+1. Harga dimulai dari harga termurah ke harga tertinggi. <br>
+2. Rating bintang penginapan dari bintang tertinggi (5) ke terendah (1). <br>
+   Buatlah proses sorting data untuk kedua filter tersebut dengan menggunakan algoritma
+   bubble sort dan selection sort. <br>
+
+![alt text](Img/soalLatPrak.png) <br>
+
+jawab: <br>
+
+CODE
+
+```java
+package pertemuan6.latihanpraktikum;
+
+public class HotelService20 {
+
+    private Hotel20[] kamar;
+    private int jumlahKamar;
+
+    // Konstruktor untuk kelas HotelService20
+    public HotelService20() {
+        kamar = new Hotel20[100];
+        jumlahKamar = 0;
+    }
+
+    // Metode untuk menambahkan hotel
+    public void tambah(Hotel20 H) {
+        kamar[jumlahKamar] = H;
+        jumlahKamar++;
+    }
+
+    // Metode untuk menampilkan semua hotel
+    public void tampilkanSemua() {
+        for (int i = 0; i < jumlahKamar; i++) {
+            System.out.println("Nama Hotel: " + kamar[i].nama + ", Kota: " + kamar[i].kota + ", Harga: "
+                    + kamar[i].harga + ", Bintang: " + kamar[i].bintang);
+        }
+    }
+
+    // Metode untuk mengurutkan hotel berdasarkan harga (Bubble Sort)
+    public void urutkanHargaBubbleSort() {
+        for (int i = 0; i < jumlahKamar - 1; i++) {
+            for (int j = 0; j < jumlahKamar - i - 1; j++) {
+                if (kamar[j].harga > kamar[j + 1].harga) {
+                    Hotel20 temp = kamar[j];
+                    kamar[j] = kamar[j + 1];
+                    kamar[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // Metode untuk mengurutkan hotel berdasarkan harga (Selection Sort)
+    public void urutkanHargaSelectionSort() {
+        for (int i = 0; i < jumlahKamar - 1; i++) {
+            int minIdx = i;
+            for (int j = i + 1; j < jumlahKamar; j++) {
+                if (kamar[j].harga < kamar[minIdx].harga) {
+                    minIdx = j;
+                }
+            }
+            Hotel20 temp = kamar[minIdx];
+            kamar[minIdx] = kamar[i];
+            kamar[i] = temp;
+        }
+    }
+
+    // Metode untuk mengurutkan hotel berdasarkan rating bintang (Bubble Sort)
+    public void urutkanBintangBubbleSort() {
+        for (int i = 0; i < jumlahKamar - 1; i++) {
+            for (int j = 0; j < jumlahKamar - i - 1; j++) {
+                if (kamar[j].bintang < kamar[j + 1].bintang) {
+                    Hotel20 temp = kamar[j];
+                    kamar[j] = kamar[j + 1];
+                    kamar[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // Metode untuk mengurutkan hotel berdasarkan rating bintang (Selection Sort)
+    public void urutkanBintangSelectionSort() {
+        for (int i = 0; i < jumlahKamar - 1; i++) {
+            int maxIdx = i;
+            for (int j = i + 1; j < jumlahKamar; j++) {
+                if (kamar[j].bintang > kamar[maxIdx].bintang) {
+                    maxIdx = j;
+                }
+            }
+            Hotel20 temp = kamar[maxIdx];
+            kamar[maxIdx] = kamar[i];
+            kamar[i] = temp;
+        }
+    }
+}
+```
+
+```java
+package pertemuan6.latihanpraktikum;
+
+public class Hotel20 {
+    public String nama, kota;
+    public int harga;
+    public Byte bintang;
+
+    public Hotel20(String nama, String kota, int harga, Byte bintang) {
+        this.nama = nama;
+        this.kota = kota;
+        this.bintang = bintang;
+        this.harga = harga;
+    }
+}
+```
+
+```java
+package pertemuan6.latihanpraktikum;
+
+import java.util.Scanner;
+
+public class MainHotel20 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        HotelService20 hotelService = new HotelService20();
+
+        hotelService.tambah(new Hotel20("Flava Hotel", "Jakarta", 500000, (byte) 3));
+        hotelService.tambah(new Hotel20("Horizon", "Bandung", 400000, (byte) 4));
+        hotelService.tambah(new Hotel20("Boulevard Dreams", "Yogyakarta", 600000, (byte) 5));
+        hotelService.tambah(new Hotel20("Sunday Vibes", "Surabaya", 450000, (byte) 2));
+        hotelService.tambah(new Hotel20("Montana Hills", "Bali", 700000, (byte) 1));
+
+        System.out.println("=============================================================");
+        System.out.println("Pilih metode pengurutan yang ingin digunakan:");
+        System.out.println("1. Pengurutan harga termurah ke harga tertinggi ");
+        System.out.println("2. Pengurutan bintang tertinggi (5) ke terendah (1)");
+        System.out.print("Pilihan: ");
+        int pilihan = sc.nextInt();
+
+        System.out.println("Sebelum pengurutan:");
+        hotelService.tampilkanSemua();
+
+        switch (pilihan) {
+            case 1:
+                System.out.println("\nSetelah pengurutan harga menggunakan Bubble Sort:");
+                hotelService.urutkanHargaBubbleSort();
+                hotelService.tampilkanSemua();
+                System.out.println("\nSetelah pengurutan harga menggunakan Selection Sort:");
+                hotelService.urutkanHargaSelectionSort();
+                hotelService.tampilkanSemua();
+                break;
+
+            case 2:
+                System.out.println("\nSetelah pengurutan bintang menggunakan Bubble Sort:");
+                hotelService.urutkanBintangBubbleSort();
+                hotelService.tampilkanSemua();
+                System.out.println("\nSetelah pengurutan bintang menggunakan Selection Sort:");
+                hotelService.urutkanBintangSelectionSort();
+                hotelService.tampilkanSemua();
+                break;
+
+            default:
+                System.out.println("Pilihan tidak valid.");
+                break;
+        }
+    }
+}
+```
+
+OUTPUT <br> ![alt text](Img/OtpLatprak1.png) <br> ![alt text](Img/OtpLatprak2.png)
