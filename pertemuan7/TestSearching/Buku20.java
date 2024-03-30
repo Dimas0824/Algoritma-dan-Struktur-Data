@@ -1,13 +1,13 @@
 package pertemuan7.TestSearching;
 
 public class Buku20 {
-    int kodeBuku;
+    String kodeBuku;
     String judulBuku;
     int tahunTerbit;
     String pengarang;
     int stock;
 
-    public Buku20(int kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock) {
+    public Buku20(String kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock) {
         this.kodeBuku = kodeBuku;
         this.judulBuku = judulBuku;
         this.tahunTerbit = tahunTerbit;

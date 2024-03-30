@@ -510,6 +510,198 @@ Output<br>![alt text](img/otpP4.png)
 - Tambahkan method untuk pencarian kode Buku (bertipe data String) dengan menggunakan sequential search dan binary search. <br>
   jawab: <br>
 
+```java
+package pertemuan7.TestSearching;
+
+public class Buku20 {
+    String kodeBuku;
+    String judulBuku;
+    int tahunTerbit;
+    String pengarang;
+    int stock;
+
+    public Buku20(String kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock) {
+        this.kodeBuku = kodeBuku;
+        this.judulBuku = judulBuku;
+        this.tahunTerbit = tahunTerbit;
+        this.pengarang = pengarang;
+        this.stock = stock;
+    }
+
+    public void tampilDataBuku() {
+        System.out.println("=================================================");
+        System.out.println("Kode Buku: " + kodeBuku);
+        System.out.println("Judul Buku: " + judulBuku);
+        System.out.println("Tahun Terbit: " + tahunTerbit);
+        System.out.println("Pengarang: " + pengarang);
+        System.out.println("Stock: " + stock);
+    }
+}
+```
+
+```java
+package pertemuan7.TestSearching;
+
+public class PencarianBuku20 {
+    Buku20 listBk[] = new Buku20[5];
+    int idx;
+
+    void tambah(Buku20 m) {
+        if (idx < listBk.length) {
+            listBk[idx] = m;
+            idx++;
+        } else {
+            System.out.println("Data sudah penuh");
+        }
+    }
+
+    void tampil() {
+        for (Buku20 m : listBk) {
+            m.tampilDataBuku();
+        }
+    }
+
+    public int FindSeqSearch(int cari) {
+        int posisi = 2;
+        for (int j = 0; j < listBk.length; j++) {
+            if (Integer.parseInt(listBk[j].kodeBuku) == cari) {
+                posisi = j;
+                break;
+            }
+        }
+        return posisi;
+    }
+
+    void Tampilposisi(int x, int pos) {
+        if (pos != -1) {
+            System.out.println("data : " + x + " ditemukan pada indeks " + pos);
+        } else {
+            System.out.println("data : " + x + " tidak ditemukan");
+        }
+    }
+
+    public void TampilData(int x, int pos) {
+        if (pos != -1) {
+            System.out.println("Kode Buku: " + listBk[pos].kodeBuku);
+            System.out.println("Judul Buku: " + listBk[pos].judulBuku);
+            System.out.println("Tahun Terbit: " + listBk[pos].tahunTerbit);
+            System.out.println("Pengarang: " + listBk[pos].pengarang);
+            System.out.println("Stock: " + listBk[pos].stock);
+        } else {
+            System.out.println("data : " + x + " tidak ditemukan");
+        }
+    }
+
+    public Buku20 FindBuku(int cari) {
+        Buku20 buku = null;
+        for (int j = 0; j < listBk.length; j++) {
+            if (Integer.parseInt(listBk[j].kodeBuku) == cari) {
+                buku = listBk[j];
+                break;
+            }
+        }
+        return buku;
+    }
+
+    public int FindBinarySearch(int cari, int left, int right) {
+        bubbleSortBuku();
+        int mid;
+        if (right >= left) {
+            mid = (left + right) / 2;
+            if (Integer.parseInt(listBk[mid].kodeBuku) == cari) {
+                return mid;
+            } else if (Integer.parseInt(listBk[mid].kodeBuku) > cari) {
+                return FindBinarySearch(cari, left, mid - 1);
+            } else {
+                return FindBinarySearch(cari, mid + 1, right);
+            }
+        }
+        return -1;
+    }
+
+    void bubbleSortBuku() {
+        for (int i = 0; i < listBk.length - 1; i++) {
+            for (int j = 1; j < listBk.length - i; j++) {
+                if (Integer.parseInt(listBk[j].kodeBuku) < Integer.parseInt(listBk[j - 1].kodeBuku)) {
+                    Buku20 tmp = listBk[j];
+                    listBk[j] = listBk[j - 1];
+                    listBk[j - 1] = tmp;
+                }
+            }
+        }
+    }
+}
+```
+
+```java
+package pertemuan7.TestSearching;
+
+import java.util.Scanner;
+
+public class BukuMain20 {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        Scanner s1 = new Scanner(System.in);
+
+        PencarianBuku20 data = new PencarianBuku20();
+        int jumBuku = 5;
+
+        for (int i = 0; i < jumBuku; i++) {
+            System.out.println("----------------------------------------------------------");
+            System.out.println("Masukkan data Buku secara Urut dari KodeBuku Terkecil : ");
+            System.out.println("----------------------------------------------------------");
+            System.out.print("Kode Buku \t: ");
+            String kodeBuku = s1.nextLine();
+            System.out.print("Judul Buku \t: ");
+            String judulBuku = s1.nextLine();
+            System.out.print("Tahun Terbit \t: ");
+            int tahunTerbit = s.nextInt();
+            System.out.print("Pengarang \t: ");
+            String pengarang = s1.nextLine();
+            System.out.print("Stock \t\t: ");
+            int stock = s.nextInt();
+
+            Buku20 m = new Buku20(kodeBuku, judulBuku, tahunTerbit, pengarang, stock);
+            data.tambah(m);
+        }
+
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Data Keseluruhan Buku : ");
+        data.tampil();
+
+        System.out.println("----------------------------------------------------------");
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Pencarian Data : ");
+        System.out.println("Masukkan kode buku yang dicari: ");
+        System.out.print("Kode Buku : ");
+        int cari = s.nextInt();
+        System.out.println("Menggunakan sequential Search");
+        int posisi = data.FindSeqSearch(cari);
+        data.Tampilposisi(cari, posisi);
+
+        data.TampilData(cari, posisi);
+
+        Buku20 dataBuku = data.FindBuku(cari);
+        if (dataBuku != null) {
+            dataBuku.tampilDataBuku();
+        } else {
+            System.out.println("Buku dengan kode " + cari + " tidak ditemukan.");
+        }
+
+        System.out.println("=========================================================");
+        System.out.println("Menggunakan binary search");
+        data.bubbleSortBuku();
+        posisi = data.FindBinarySearch(cari, 0, jumBuku - 1);
+        data.Tampilposisi(cari, posisi);
+        data.TampilData(cari, posisi);
+    }
+}
+```
+
+<br>
+
+Output<br> ![alt text](img/Otplatprak1.png) <br> ![alt text](img/Otplatprak1.2.png)
+
 2. Modifikasi percobaan searching diatas dengan ketentuan berikut ini: <br>
 
 - Tambahkan method pencarian judul buku menggunakan sequential search dan binary
