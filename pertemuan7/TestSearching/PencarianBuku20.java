@@ -109,41 +109,57 @@ public class PencarianBuku20 {
         }
     }
 
-    public int FindSeqSearchByjudulBuku(String judulBuku) {
+    public int findSeqSearchByJudulBuku(String judulBuku) {
         int posisi = -1;
-        for (int j = 0; j < listBk.length; j++) {
+        int count = 0;
+        for (int j = 0; j < idx; j++) {
             if (listBk[j].judulBuku.equalsIgnoreCase(judulBuku)) {
                 posisi = j;
-                break;
+                count++;
             }
         }
+        if (count > 1) {
+            System.out.println("Ditemukan " + count + " buku dengan judul \"" + judulBuku + "\".");
+            System.out.println("Berikut daftar kode bukunya:");
+            for (int j = 0; j < idx; j++) {
+                if (listBk[j].judulBuku.equalsIgnoreCase(judulBuku)) {
+                    System.out.println("Data: " + listBk[j].kodeBuku);
+                }
+            }
+        }
+
         return posisi;
     }
 
-    public int FindBinarySearchByjudulBuku(String judulBuku, int left, int right) {
+    public int findBinarySearchByJudulBuku(String judulBuku) {
         insertionSortJudulBuku();
-        int mid;
-        if (right >= left) {
-            mid = (left + right) / 2;
-            int compareResult = listBk[mid].judulBuku.compareToIgnoreCase(judulBuku);
-            if (compareResult == 0) {
-                return mid;
-            } else if (compareResult > 0) {
-                return FindBinarySearchByjudulBuku(judulBuku, left, mid - 1);
+
+        int left = 0;
+        int right = idx - 1;
+        int posisi = -1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (listBk[mid].judulBuku.equalsIgnoreCase(judulBuku)) {
+                posisi = mid;
+                break;
+            } else if (listBk[mid].judulBuku.compareToIgnoreCase(judulBuku) > 0) {
+                right = mid - 1;
             } else {
-                return FindBinarySearchByjudulBuku(judulBuku, mid + 1, right);
+                left = mid + 1;
             }
         }
-        return -1;
+
+        return posisi;
     }
 
     public void insertionSortJudulBuku() {
-        for (int i = 1; i < listBk.length; i++) {
+        for (int i = 1; i < idx; i++) {
             String temp = listBk[i].judulBuku;
             int j = i - 1;
             while (j >= 0 && listBk[j].judulBuku.compareToIgnoreCase(temp) > 0) {
                 listBk[j + 1] = listBk[j];
-                j = j - 1;
+                j--;
             }
             listBk[j + 1].judulBuku = temp;
         }

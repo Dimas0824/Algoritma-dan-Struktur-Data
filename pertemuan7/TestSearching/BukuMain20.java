@@ -82,13 +82,13 @@ public class BukuMain20 {
                     System.out.println();
 
                     System.out.println("Menggunakan sequential Search");
-                    int posisiJudul = data.FindSeqSearchByjudulBuku(cariJudul);
+                    int posisiJudul = data.findSeqSearchByJudulBuku(cariJudul);
                     data.TampilPosisiByJudulBuku(cariJudul, posisiJudul);
 
                     System.out.println("=========================================================");
                     System.out.println("Menggunakan binary search");
                     data.insertionSortJudulBuku();
-                    posisiJudul = data.FindBinarySearchByjudulBuku(cariJudul, 0, jumBuku - 1);
+                    posisiJudul = data.findBinarySearchByJudulBuku(cariJudul);
                     data.TampilPosisiByJudulBuku(cariJudul, posisiJudul);
                     data.TampilDataByJudulBuku(cariJudul, posisiJudul);
                     break;
