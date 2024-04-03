@@ -11,6 +11,8 @@ public class Utama20 {
         scanner.nextLine();
 
         Gudang20 gudang = new Gudang20(kapasitas);
+        int kode = 0;
+        String nama = " ";
 
         while (true) {
             System.out.println("\nMenu");
@@ -18,7 +20,10 @@ public class Utama20 {
             System.out.println("2. Ambil barang");
             System.out.println("3. Tampilkan tumpukan barang");
             System.out.println("4. Tampilkan barang teratas");
-            System.out.println("5. Keluar");
+            System.out.println("5. Tampilkan barang terbawah");
+            System.out.println("6. Cari barang bardasarkan kode barang");
+            System.out.println("7. Cari barang bardasarkan nama barang");
+            System.out.println("8. Keluar");
             System.out.print("Pilih operasi: ");
             int pilihan = scanner.nextInt();
             scanner.nextLine();
@@ -26,10 +31,10 @@ public class Utama20 {
             switch (pilihan) {
                 case 1:
                     System.out.print("Masukkan kode barang: ");
-                    int kode = scanner.nextInt();
+                    kode = scanner.nextInt();
                     scanner.nextLine();
                     System.out.print("Masukkan nama barang: ");
-                    String nama = scanner.nextLine();
+                    nama = scanner.nextLine();
                     System.out.print("Masukkan nama kategori: ");
                     String kategori = scanner.nextLine();
                     Barang20 barangBaru = new Barang20(kode, nama, kategori);
@@ -49,6 +54,34 @@ public class Utama20 {
                     break;
 
                 case 5:
+                    gudang.lihatBarangTerbawah();
+                    break;
+
+                case 6:
+                    System.out.print("Masukkan kode barang: ");
+                    kode = scanner.nextInt();
+                    scanner.nextLine();
+                    Barang20 barangDitemukan = gudang.cariBarangKode(kode);
+                    if (barangDitemukan != null) {
+                        System.out.println("Barang dengan kode " + kode + " ditemukan: " + barangDitemukan.nama);
+                    } else {
+                        System.out.println("Barang dengan kode " + kode + " tidak ditemukan.");
+                    }
+                    break;
+
+                case 7:
+                    System.out.print("Masukkan nama barang: ");
+                    nama = scanner.nextLine();
+                    barangDitemukan = gudang.cariBarangNama(nama);
+                    if (barangDitemukan != null) {
+                        System.out.println("Barang dengan nama " + nama + " dan kode " + kode + " ditemukan: "
+                                + barangDitemukan.nama);
+                    } else {
+                        System.out.println("Barang dengan nama " + nama + " tidak ditemukan.");
+                    }
+                    break;
+
+                case 8:
                     // exit program
                     break;
 

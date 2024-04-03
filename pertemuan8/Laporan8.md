@@ -459,7 +459,183 @@ Output<br> ![alt text](img/otpsoalP2.2.png)
 Code<br>
 
 ```java
+package pertemuan8.fileJava;
+
+public class Postfix20 {
+    int n, top;
+    char[] stack;
+
+    public Postfix20(int total) {
+        n = total;
+        top = -1;
+        stack = new char[n];
+        push('(');
+    }
+
+    public void push(char data) {
+        top++;
+        stack[top] = data;
+    }
+
+    public char pop() {
+        char item = stack[top];
+        top--;
+        return item;
+    }
+
+    public boolean IsOperand(char c) {
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ' || c == '.') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean IsOperator(char c) {
+        if (c == '^' || c == '%' || c == '/' || c == '*' || c == '-' || c == '+') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int derajat(char c) {
+        switch (c) {
+            case '^':
+                return 3;
+            case '%':
+                return 2;
+            case '/':
+                return 2;
+            case '*':
+                return 2;
+            case '+':
+                return 1;
+            case '-':
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
+    public String konversi(String Q) {
+        String P = "";
+        char c;
+        for (int i = 0; i < Q.length(); i++) {
+            c = Q.charAt(i);
+            if (IsOperand(c)) {
+                P = P + c;
+            }
+            if (c == '(') {
+                push(c);
+            }
+            if (c == ')') {
+                while (stack[top] != '(') {
+                    P = P + pop();
+                }
+                pop();
+            }
+            if (IsOperator(c)) {
+                while (derajat(stack[top]) >= derajat(c)) {
+                    P = P + pop();
+                }
+                push(c);
+            }
+        }
+        return P;
+    }
+}
 
 ```
 
-Output<br>
+```java
+package pertemuan8.fileJava;
+
+import java.util.Scanner;
+
+public class Postfixmain20 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String P, Q;
+
+        System.out.println("Masukkan ekspresi matematika (infix): ");
+        Q = sc.nextLine();
+        Q = Q.trim();
+        Q = Q + ")";
+
+        int total = Q.length();
+        Postfix20 post = new Postfix20(total);
+        P = post.konversi(Q);
+        System.out.println("Postfix: " + P);
+    }
+}
+
+```
+
+Output<br> ![alt text](img/otpP3.png)
+
+## Pertanyaan
+
+1. Pada method derajat, mengapa return value beberapa case bernilai sama? Apabila return value diubah dengan nilai berbeda-beda setiap case-nya, apa yang terjadi? <br>
+   jawab: Return value yang sama pada beberapa case seperti operator %, /, dan _ yang mengembalikan nilai 2 menunjukkan prioritas yang setara dari operator-operator tersebut dalam ekspresi matematika. Ini berarti bahwa operator %, /, dan _ memiliki prioritas yang sama, namun di bawah operator ^ yang memiliki prioritas lebih tinggi dengan nilai return 4. <br>
+2. Jelaskan alur kerja method konversi! <br>
+   jawab: Pertama, string kosong `P` digunakan untuk menyimpan hasil konversi dari ekspresi infix ke postfix. Kemudian, setiap karakter dari string `Q` diiterasi. Jika karakter tersebut adalah operand, maka karakter tersebut ditambahkan ke string `P`. Jika karakter adalah "(", maka tanda kurung tersebut dimasukkan ke dalam stack. Jika karakter adalah ")", maka dilakukan pengosongan stack sampai menemukan "(". Setiap karakter yang dikeluarkan dari stack dimasukkan ke dalam string `P`. Jika karakter adalah operator, dilakukan pengecekan prioritas operator dalam stack. Jika prioritas operator dalam stack lebih tinggi atau sama dengan operator saat ini, maka operator dalam stack dimasukkan ke dalam string `P`. Hal ini diulangi hingga prioritas operator dalam stack lebih rendah dari operator saat ini. Kemudian, operator saat ini dimasukkan ke dalam stack. Setelah iterasi selesai, hasil konversi yang disimpan dalam string `P` dikembalikan. <br>
+3. Pada method konversi, apa fungsi dari potongan kode berikut? <br>
+
+```java
+c =Q.charAt(i);
+```
+
+jawab: Kode diatas berfungsi untuk mengambil karakter dari String 'Q' pada indeks ke i dan menyimpannya pada variabel 'c'. Tujuannya untuk memproses setiap karakter secara berurutan dalam string 'Q' saat iterasi dilakukan dalam loop for. Dengan melakukan ini, kode dapat memeriksa dan mengelola setiap karakter secara terpisah untuk konversi ekspresi infix ke postfix.<br>
+
+# Latihan Praktikum
+
+Perhatikan dan gunakan kembali kode program pada Percobaan 1. Tambahkan dua method berikut pada class Gudang: <br>
+• Method lihatBarangTerbawah digunakan untuk mengecek barang pada tumpukan terbawah <br>
+• Method cariBarang digunakan untuk mencari ada atau tidaknya barang berdasarkan kode barangnya atau nama barangnya <br>
+Jawab: <br>
+Code
+
+```java
+    public Barang20 lihatBarangTeratas() {
+        if (!cekKosong()) {
+            Barang20 barangTeratas = tumpukan[top];
+            System.out.println("Barang teratas " + barangTeratas.nama);
+            return barangTeratas;
+        } else {
+            System.out.println("Tumpukan barang kosong");
+            return null;
+        }
+    }
+
+    public Barang20 lihatBarangTerbawah(){
+        if (!cekKosong()) {
+            Barang20 barangTerbawah = tumpukan[0];
+            System.out.println("Barang terbawah " + barangTerbawah.nama);
+            return barangTerbawah;
+        } else {
+            System.out.println("Tumpukan barang kosong");
+            return null;
+        }
+    }
+
+    public Barang20 cariBarangKode(int kodeBarang) {
+        for (int i = 0; i <= top; i++) {
+            if (tumpukan[i].kode == kodeBarang) {
+                return tumpukan[i];
+            }
+        }
+        return null;
+    }
+
+    public Barang20 cariBarangNama(String namaBarang) {
+        for (int i = 0; i <= top; i++) {
+            if (tumpukan[i].nama.equals(namaBarang)) {
+                return tumpukan[i];
+            }
+        }
+        return null;
+    }
+```
+
+Output<br> ![alt text](img/otpLatPrak1.png) <br> ![alt text](img/otpLatPrak2.png) <br> ![alt text](img/otpLatPrak3.png)
