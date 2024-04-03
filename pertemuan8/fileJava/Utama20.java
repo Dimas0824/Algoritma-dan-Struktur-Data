@@ -4,15 +4,21 @@ import java.util.Scanner;
 
 public class Utama20 {
     public static void main(String[] args) {
-        Gudang20 gudang = new Gudang20(7);
         Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan kapasitas gudang: ");
+        int kapasitas = scanner.nextInt();
+        scanner.nextLine();
+
+        Gudang20 gudang = new Gudang20(kapasitas);
 
         while (true) {
             System.out.println("\nMenu");
             System.out.println("1. Tambah barang");
             System.out.println("2. Ambil barang");
             System.out.println("3. Tampilkan tumpukan barang");
-            System.out.println("4. Keluar");
+            System.out.println("4. Tampilkan barang teratas");
+            System.out.println("5. Keluar");
             System.out.print("Pilih operasi: ");
             int pilihan = scanner.nextInt();
             scanner.nextLine();
@@ -39,8 +45,12 @@ public class Utama20 {
                     break;
 
                 case 4:
+                    gudang.lihatBarangTeratas();
+                    break;
+
+                case 5:
                     // exit program
-                    return;
+                    break;
 
                 default:
                     System.out.println("Pilihan tidak valid. Silahkan coba lagi");
