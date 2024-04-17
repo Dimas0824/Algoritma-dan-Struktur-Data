@@ -210,7 +210,7 @@ Gudang20 gudang = new Gudang20(7);
     }
 ```
 
-Output<br> ![alt text](img/soalP1.3.png)
+Output<br> ![alt text](img/otpsoalP1.3.png)
 
 4. Modifikasi kode program pada class Utama sehingga pengguna juga dapat memilih operasi lihat barang teratas, serta dapat secara bebas menentukan kapasitas gudang!<br>
    jawab: <br>
