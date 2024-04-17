@@ -43,23 +43,23 @@ Disini saya menggunakan metode pengurutan 'SelectionSort' untuk melakukan pengur
 ## Output jika data yang dicari ada pada data angka
 
 ```
-    Data angka yang tersedia:
-    13 11 41 6 44 27 7 27 26 13 49 21 1 42 7 45 48
-    ========================================================================
-    Masukkan angka yang akan dicari: 49
-    ========================================================================
-    data sebelum diurutkan:
-    13 11 41 6 44 27 7 27 26 13 49 21 1 42 7 45 48
-    Angka 49 ditemukan pada indeks: 10
-    ========================================================================
-    data setelah diurutkan secara ascending:
-    1 6 7 7 11 13 13 21 26 27 27 41 42 44 45 48 49
-    Angka 49 ditemukan pada indeks ke-16 setelah pengurutan ascending
-    ========================================================================
-    data setelah diurutkan secara descending:
-    49 48 45 44 42 41 27 27 26 21 13 13 11 7 7 6 1
-    Angka 49 ditemukan pada indeks ke-0 setelah pengurutan descending
-    ========================================================================
+Data angka yang tersedia:
+13 11 41 6 44 27 7 27 26 13 49 21 1 42 7 45 48
+========================================================================
+Masukkan angka yang akan dicari: 49
+========================================================================
+data sebelum diurutkan:
+13 11 41 6 44 27 7 27 26 13 49 21 1 42 7 45 48
+Angka 49 ditemukan pada indeks: 10
+========================================================================
+data setelah diurutkan secara ascending:
+1 6 7 7 11 13 13 21 26 27 27 41 42 44 45 48 49
+Angka 49 ditemukan pada indeks ke-16 setelah pengurutan ascending
+========================================================================
+data setelah diurutkan secara descending:
+49 48 45 44 42 41 27 27 26 21 13 13 11 7 7 6 1
+Angka 49 ditemukan pada indeks ke-0 setelah pengurutan descending
+========================================================================
 ```
 
 ## Output jika data yang dicari tidak ada pada data angka
