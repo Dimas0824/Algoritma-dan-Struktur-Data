@@ -232,6 +232,15 @@ jawab:
     }
 ```
 
+Output <br> ![alt text](Img/OtpP1.7.png)
 <br>
 
 # Praktikum 2
+
+Code <br>
+
+```java
+
+```
+
+Output <br>
