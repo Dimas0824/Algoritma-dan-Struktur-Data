@@ -1,4 +1,4 @@
-package pertemuan11.TUGAS;
+package pertemuan11.TUGAS.No1;
 
 public class SingleLinkedList20 {
     Node20 head, tail;

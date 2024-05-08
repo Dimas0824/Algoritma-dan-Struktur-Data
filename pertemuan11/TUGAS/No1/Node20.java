@@ -1,4 +1,4 @@
-package pertemuan11.TUGAS;
+package pertemuan11.TUGAS.No1;
 
 public class Node20 {
     int NIM;
