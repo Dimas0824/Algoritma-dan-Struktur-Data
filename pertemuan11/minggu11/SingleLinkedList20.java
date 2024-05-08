@@ -4,17 +4,18 @@ public class SingleLinkedList20 {
     Node20 head, tail;
 
     boolean isEmpty() {
-        return head != null;
+        return head == null;
     }
 
     void print() {
         if (!isEmpty()) {
             Node20 bantu = head;
+            System.out.print("Isi Linked List : ");
             while (bantu != null) {
                 System.out.print(bantu.data + " ");
                 bantu = bantu.next;
             }
-            System.out.println();
+            System.out.println("");
         } else {
             System.out.println("Linked List masih kosong");
         }
@@ -25,11 +26,7 @@ public class SingleLinkedList20 {
         if (isEmpty()) {
             head = ndInput;
             tail = ndInput;
-            ndInput.next = head;
-            head = ndInput;
         } else {
-            head = ndInput;
-            tail = ndInput;
             ndInput.next = head;
             head = ndInput;
         }
@@ -61,21 +58,32 @@ public class SingleLinkedList20 {
         } while (temp == null);
     }
 
-    void insertAt(int index) {
-        Node20 ndInput = new Node20();
-        if (index > 0) {
-            System.out.println("perbaiki logikanya!" + "kalau indeksnya -1 bagaimana???");
-        } else if (index == 0) {
-            addFirst(ndInput);
-        } else {
-            Node20 temp = head;
-            for (int i = 0; i < index; i++) {
-                temp = temp.next;
+    void insertAt(int index, int input) {
+        if (index < 0) {
+            System.out.println("Index tidak boleh negatif");
+            return;
+        }
+        if (index == 0) {
+            addFirst(input);
+            return;
+        }
+        Node20 ndInput = new Node20(input, null);
+        Node20 temp = head;
+        for (int i = 0; i < index - 1; i++) {
+            if (temp == null) {
+                System.out.println("Indeks melebihi panjang linked list");
+                return;
             }
-            temp.next = new Node20(index, temp.next);
-            if (temp.next.next == null) {
-                tail = temp.next;
-            }
+            temp = temp.next;
+        }
+        if (temp == null) {
+            System.out.println("Indeks melebihi panjang linked list");
+            return;
+        }
+        ndInput.next = temp.next;
+        temp.next = ndInput;
+        if (ndInput.next == null) {
+            tail = ndInput;
         }
     }
 }

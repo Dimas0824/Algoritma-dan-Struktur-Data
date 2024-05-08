@@ -23,7 +23,7 @@ Code<br>
 
 ```
 
-Output<br>
+Output<br>![alt text](img/OptP1.png)
 
 # Praktikum 2
 
