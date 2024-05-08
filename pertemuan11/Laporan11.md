@@ -304,3 +304,12 @@ else if (temp.next.data == key){
 jawab: dalam method remove kode diatas berperan dalam mencari node yang memiliki nilai yang sama dengan nilai key. Seteleah node ditemukan, kemudian dilakukan operasi penghapusan dari linked list dengan mengubah referensi 'next' dari node saat temp ke node setelah node yang akan dihapus. <br>
 
 # Tugas
+
+1. Implementasikan ilustrasi Linked List Berikut. Gunakan 4 macam penambahan data yang telah dipelajari sebelumnya untuk menginputkan data. <br>
+   ![alt text](img/SoalTgs1.png) <br>
+   jawab: <br>
+
+2. Buatlah implementasi program antrian layanan unit kemahasiswaan sesuai dengan kondisi yang ditunjukkan pada soal nomor 1! Ketentuan <br>
+   a. Implementasi antrian menggunakan Queue berbasis Linked List! <br>
+   b. Program merupakan proyek baru, bukan modifikasi dari soal nomor 1! <br>
+   jawab: <br>
