@@ -43,4 +43,20 @@ public class QueueLinkedList20 {
             head = head.next;
         }
     }
+
+    void peekHead() {
+        if (!isEmpty()) {
+            System.out.println("Antrian Terdepan: (NIM: " + head.NIM + ", Nama: " + head.nama + ")");
+        } else {
+            System.out.println("Antrian masih kosong");
+        }
+    }
+
+    void peekTail() {
+        if (!isEmpty()) {
+            System.out.println("Antrian Terbelakang: (NIM: " + tail.NIM + ", Nama:" + tail.nama + ")");
+        } else {
+            System.out.println("Antrian masih kosong");
+        }
+    }
 }
