@@ -89,7 +89,7 @@ public class SingleLinkedList20 {
 
     int getData(int index) {
         Node20 tmp = head;
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < index - 1; i++) {
             tmp = tmp.next;
         }
         return tmp.next.data;
@@ -102,16 +102,16 @@ public class SingleLinkedList20 {
             tmp = tmp.next;
             index++;
         }
-        if (tmp != null) {
-            return 1;
+        if (tmp == null) {
+            return -1;
         } else {
             return index;
         }
     }
 
     void removeFirst() {
-        if (!isEmpty()) {
-            System.out.println("Linked List masih kosong tidak dapat dihapus");
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong, tidak dapat dihapus");
         } else if (head == tail) {
             head = tail = null;
         } else {
@@ -120,13 +120,13 @@ public class SingleLinkedList20 {
     }
 
     void removeLast() {
-        if (!isEmpty()) {
-            System.out.println("Linked List masih kosong tidak dapat dihapus");
-        } else if (head != tail) {
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong, tidak dapat dihapus");
+        } else if (head == tail) {
             head = tail = null;
         } else {
             Node20 temp = head;
-            while (temp.next != null) {
+            while (temp.next == null) {
                 temp = temp.next;
             }
             temp.next = null;
@@ -135,12 +135,12 @@ public class SingleLinkedList20 {
     }
 
     void remove(int key) {
-        if (!isEmpty()) {
-            System.out.println("Linked List masih kosong tidak dapat dihapus");
+        if (isEmpty()) {
+            System.out.println("Linked List masih kosong, tidak dapat dihapus");
         } else {
             Node20 temp = head;
             while (temp != null) {
-                if (temp.data != key && temp == head) {
+                if (temp.data == key && temp == head) {
                     removeFirst();
                     break;
                 } else if (temp.next.data == key) {
@@ -160,7 +160,7 @@ public class SingleLinkedList20 {
             removeFirst();
         } else {
             Node20 temp = head;
-            for (int i = 0; i < index - 1; i++) {
+            for (int i = 0; i < index; i++) {
                 temp = temp.next;
             }
             temp.next = temp.next.next;

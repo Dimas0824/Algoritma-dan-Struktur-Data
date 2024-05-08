@@ -165,17 +165,142 @@ Jawab: Kode diatas digunakan untuk memeriksa apakah node yang diikuti oleh temp 
 # Praktikum 2: Modifikasi Elemen pada Single Linked List
 
 Code<br>
+Tambahan function pada class singleLinkedList<br>
 
 ```java
+    int getData(int index) {
+        Node20 tmp = head;
+        for (int i = 0; i < index - 1; i++) {
+            tmp = tmp.next;
+        }
+        return tmp.next.data;
+    }
 
+    int indexOf(int key) {
+        Node20 tmp = head;
+        int index = 0;
+        while (tmp != null && tmp.data != key) {
+            tmp = tmp.next;
+            index++;
+        }
+        if (tmp == null) {
+            return -1;
+        } else {
+            return index;
+        }
+    }
+
+    void removeFirst() {
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong, tidak dapat dihapus");
+        } else if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+        }
+    }
+
+    void removeLast() {
+        if (isEmpty()) {
+            System.out.println("Linked list masih kosong, tidak dapat dihapus");
+        } else if (head == tail) {
+            head = tail = null;
+        } else {
+            Node20 temp = head;
+            while (temp.next == null) {
+                temp = temp.next;
+            }
+            temp.next = null;
+            tail = temp.next;
+        }
+    }
+
+    void remove(int key) {
+        if (isEmpty()) {
+            System.out.println("Linked List masih kosong, tidak dapat dihapus");
+        } else {
+            Node20 temp = head;
+            while (temp != null) {
+                if (temp.data == key && temp == head) {
+                    removeFirst();
+                    break;
+                } else if (temp.next.data == key) {
+                    temp.next = temp.next.next;
+                    if (temp.next == null) {
+                        tail = temp;
+                    }
+                    break;
+                }
+                temp = temp.next;
+            }
+        }
+    }
+
+    public void removeAt(int index) {
+        if (index == 0) {
+            removeFirst();
+        } else {
+            Node20 temp = head;
+            for (int i = 0; i < index; i++) {
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+            if (temp.next == null) {
+                tail = temp;
+            }
+        }
+    }
+}
 ```
 
 ```java
+package pertemuan11.minggu11;
 
+public class SLLMain20 {
+    public static void main(String[] args) {
+        SingleLinkedList20 singLL = new SingleLinkedList20();
+        singLL.print();
+        singLL.addFirst(890);
+        singLL.print();
+        singLL.addLast(760);
+        singLL.print();
+        singLL.addFirst(700);
+        singLL.print();
+        singLL.insertAfter(700, 999);
+        singLL.print();
+        singLL.insertAt(3, 833);
+        singLL.print();
+
+        System.out.println("Data pada indeks ke-1 = " + singLL.getData(1));
+        System.out.println("Data 3 berada pada indeks ke-" + singLL.indexOf(760));
+
+        singLL.remove(999);
+        singLL.print();
+        singLL.removeAt(0);
+        singLL.print();
+        singLL.removeFirst();
+        singLL.print();
+        singLL.removeLast();
+        singLL.print();
+    }
+}
 ```
+
+Output<br>![alt text](img/OptP2.png)
+
+## Pertanyaan
+
+1. Mengapa digunakan keyword break pada fungsi remove? Jelaskan! <br>
+   jawab: keyword break digunakan untuk menghentikan iterasi setelah dilakukan proses penghapusan. Sehingga proses penghapusan dilakukan sekali pada elemen yang diinginkan dan tidak menghapus elemen lain yang tidak diiginkan. <br>
+
+2. Jelaskan kegunaan kode dibawah pada method remove <br>
 
 ```java
-
+else if (temp.next.data == key){
+    temp.next = temp.next.next;
+}
 ```
 
-Output<br>
+jawab: dalam method remove kode diatas berperan dalam mencari node yang memiliki nilai yang sama dengan nilai key. Seteleah node ditemukan, kemudian dilakukan operasi penghapusan dari linked list dengan mengubah referensi 'next' dari node saat temp ke node setelah node yang akan dihapus. <br>
+
+# Tugas
