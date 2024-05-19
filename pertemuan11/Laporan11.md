@@ -307,12 +307,12 @@ jawab: dalam method remove kode diatas berperan dalam mencari node yang memiliki
 
 1. Implementasikan ilustrasi Linked List Berikut. Gunakan 4 macam penambahan data yang telah dipelajari sebelumnya untuk menginputkan data. <br>
    ![alt text](img/SoalTgs1.png) <br>
-   jawab: Antrian terdepan merupakan bagian head node, dan antrian terbelakang adalah tail node. **Untuk source code saya telah mengupload pada folder tugas No1. Dan dibawah ini adalah output dari source code tersebut:**<br>
+   jawab: SOURCE CODE ada di folder tugas No1.<br>
    ![alt text](img/OtpTgs1.1.png)<br>
-   ![<alt text>](img/OtpTgs1.2.png)<br>
-   ![<alt text>](img/OtpTgs1.3.png)<br>
-
 2. Buatlah implementasi program antrian layanan unit kemahasiswaan sesuai dengan kondisi yang ditunjukkan pada soal nomor 1! Ketentuan <br>
    a. Implementasi antrian menggunakan Queue berbasis Linked List! <br>
    b. Program merupakan proyek baru, bukan modifikasi dari soal nomor 1! <br>
-   jawab: <br>
+   jawab: Antrian terdepan merupakan bagian head node, dan antrian terbelakang adalah tail node. **Untuk source code saya telah mengupload pada folder tugas No1. Dan dibawah ini adalah output dari source code tersebut:**<br>
+   ![alt text](img/OtpTgs2.1.png)<br>
+   ![<alt text>](img/OtpTgs2.2.png)<br>
+   ![<alt text>](img/OtpTgs2.3.png)<br>

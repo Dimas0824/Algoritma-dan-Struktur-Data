@@ -9,11 +9,12 @@ public class SingleLinkedList20 {
 
     void print() {
         if (!isEmpty()) {
-            Node20 bantu = head;
+            Node20 tmp = head;
             System.out.print("Isi Linked List : ");
-            while (bantu != null) {
-                System.out.print("(" + bantu.NIM + ", " + bantu.nama + ") ");
-                bantu = bantu.next;
+            while (tmp != null) {
+                System.out.print("NIM : " + tmp.NIM + " Nama : " + tmp.nama + " | ");
+                tmp = tmp.next;
+
             }
             System.out.println("");
         } else {

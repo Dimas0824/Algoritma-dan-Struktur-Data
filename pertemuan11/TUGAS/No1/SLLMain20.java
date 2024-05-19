@@ -3,7 +3,6 @@ package pertemuan11.TUGAS.No1;
 public class SLLMain20 {
     public static void main(String[] args) {
         SingleLinkedList20 singLL = new SingleLinkedList20();
-        singLL.print();
         singLL.addFirst(111, "Anton");
         singLL.print();
         singLL.addLast(115, "Sari");
