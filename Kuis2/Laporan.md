@@ -18,10 +18,11 @@
 # Deskripsi Program
 
 Ini merupakan program yang berfungsi untuk menghitung setiap poin dari tim berdasarkan Win Lose sebuah tim. <br>
+Kode program tertera pada Node20, LinkedList20, TimVoli20, mainMatch. <br>
 
 # Sistem Perhitungan Poin
 
-Poin dihitung berdasarkan Set Win-Lose setiap tim. Dibawah ini adalah perolehan poinnya: <br>
+Poin dihitung berdasarkan Set Win-Lose setiap tim. Dibawah ini adalah perolehan poinnya:
 
 1. jika Win 3-0 atau 3-1, maka mendapatkan +3 poin. <br>
 2. jika Win 3-2, maka mendapatkan +2 poin. <br>
