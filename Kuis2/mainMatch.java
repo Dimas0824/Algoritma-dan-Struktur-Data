@@ -51,6 +51,13 @@ public class mainMatch {
                             tim2Match.updatepoin(kalahTim1, menangTim1, tim1Match.namaTim);
                             validInput = true;
                             System.out.println();
+
+                            ranking.updateKlasemen(semuaTim);
+
+                            // Tampilkan ranking
+                            System.out.println("Klasemen Tim Proliga Voli Indonesia setelah pertandingan ini:");
+                            ranking.tampilkanRanking();
+                            System.out.println();
                         } else {
                             System.out.println("Jumlah set tidak valid. Silakan coba lagi.");
                             System.out.println();
@@ -66,11 +73,6 @@ public class mainMatch {
                     sc.nextLine();
                 }
             }
-        }
-
-        // Tambahkan tim ke linked list
-        for (TimVoli20 tim : semuaTim) {
-            ranking.tambahTim(tim);
         }
 
         int pilih;

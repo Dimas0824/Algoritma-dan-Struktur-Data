@@ -22,6 +22,16 @@ class LinkedList20 {
         }
     }
 
+    public void updateKlasemen(TimVoli20[] semuaTim) {
+        // Kosongkan linked list
+        this.head = null;
+
+        // Tambahkan semua tim ke linked list
+        for (TimVoli20 tim : semuaTim) {
+            this.tambahTim(tim);
+        }
+    }
+
     public void tampilkanRanking() {
         System.out.println(new String(new char[136]).replace("\0", "-"));
         String format = "| %-4s | %-35s | %-7s | %-4s | %-4s | %-4s | %-4s | %-4s | %-4s | %-4s | %-4s | %-4s | %-4s | %-7s |\n";

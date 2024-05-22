@@ -33,7 +33,7 @@ Poin dihitung berdasarkan Set Win-Lose setiap tim. Dibawah ini adalah perolehan 
 
 ## Memasukkan data pertandingan setiap tim
 
-![alt text](<img/InsertWL (1).png>) <br> ![alt text](<img/InsertWL (2).png>) <br> ![alt text](<img/InsertWL (3).png>) <br> ![alt text](<img/InsertWL (4).png>) <br>
+![alt text](<img/InsertWL (1).png>) <br> ![alt text](<img/UpdateKlasemen 1.png>)<br>![alt text](<img/UpdateKlasemen 2.png>) <br>![alt text](<img/InsertWL (2).png>) <br> ![alt text](<img/UpdateKlasemen 3.png>)<br>![alt text](<img/UpdateKlasemen 4.png>) <br> ![alt text](<img/InsertWL (3).png>) <br>![alt text](<img/UpdateKlasemen 5.png>) <br>![alt text](<img/UpdateKlasemen 6.png>) <br> ![alt text](<img/InsertWL (4).png>) <br>![alt text](<img/UpdateKlasemen 7.png>) <br>
 
 ## Melihat Klasemen Setiap Tim yang Sudah Bermain
 
