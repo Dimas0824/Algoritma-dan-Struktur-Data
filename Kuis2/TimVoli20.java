@@ -74,15 +74,25 @@ public class TimVoli20 {
     public void tampilkanRiwayatPertandingan() {
         System.out.println("Riwayat Pertandingan untuk " + this.namaTim + ":");
         System.out.println(new String(new char[101]).replace("\0", "-"));
-        String format = "| %-30s | %-30s | %-5s | %-5s | %-5s |\n";
+        String format = "| %-35s | %-35s | %-5s | %-5s | %-5s |\n";
         System.out.format(format, "Tim", "Lawan", "W", "L", "Poin");
         System.out.println(new String(new char[101]).replace("\0", "-"));
 
         for (int i = 0; i < jmlMatch; i++) {
             Match match = historiPertandingan[i];
-            int poin = (match.menang > match.kalah) ? 3 : 0; // calculate points based on win/loss
+            int poin;
+            if (match.menang == 3 && match.kalah <= 1) {
+                poin = 3;
+            } else if (match.menang == 3 && match.kalah == 2) {
+                poin = 2;
+            } else if (match.menang == 2 && match.kalah == 3) {
+                poin = 1;
+            } else {
+                poin = 0;
+            }
             System.out.format(format, this.namaTim, match.lawan, match.menang, match.kalah, poin);
             System.out.println(new String(new char[101]).replace("\0", "-"));
         }
     }
+
 }
