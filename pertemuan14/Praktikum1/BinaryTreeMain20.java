@@ -1,4 +1,4 @@
-package pertemuan14;
+package pertemuan14.Praktikum1;
 
 public class BinaryTreeMain20 {
     public static void main(String[] args) {

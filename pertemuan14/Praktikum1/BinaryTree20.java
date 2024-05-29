@@ -1,4 +1,4 @@
-package pertemuan14;
+package pertemuan14.Praktikum1;
 
 public class BinaryTree20 {
     Node20 root;
@@ -11,30 +11,11 @@ public class BinaryTree20 {
         return root == null; // kosong jika root == null
     }
 
-    void add(int data) {
-        if (isEmpty()) { // tree is empty
+    void add(int data) { // merubah logika pada bagian else agar langsung memanggil method tambahRekursif
+        if (isEmpty()) {
             root = new Node20(null, data, null);
         } else {
-            Node20 current = root;
-            while (true) {
-                if (data < current.data) { // anak sebelah kiri harus nilai lebih kecil
-                    if (current.left != null) { // cek apakah anak kiri ada
-                        current = current.left;
-                    } else {
-                        current.left = new Node20(null, data, null);
-                        break;
-                    }
-                } else if (data > current.data) { // anak sebelah kanan harus nilai lebih besar
-                    if (current.right != null) { // cek apakah anak kanan ada
-                        current = current.right;
-                    } else {
-                        current.right = new Node20(null, data, null); // membuat node baru di kanan
-                        break;
-                    }
-                } else { // data is already exist
-                    break;
-                }
-            }
+            tambahRekursif(root, data);
         }
     }
 
@@ -160,6 +141,26 @@ public class BinaryTree20 {
                         parent.right = successor;
                     }
                     successor.left = current.left;
+                }
+            }
+        }
+    }
+
+    void tambahRekursif(Node20 current, int data) { // tambahan method tambah secara rekursif
+        if (current == null) {
+            current = new Node20(null, data, null);
+        } else {
+            if (data < current.data) {
+                if (current.left != null) {
+                    tambahRekursif(current.left, data);
+                } else {
+                    current.left = new Node20(null, data, null);
+                }
+            } else if (data > current.data) {
+                if (current.right != null) {
+                    tambahRekursif(current.right, data);
+                } else {
+                    current.right = new Node20(null, data, null);
                 }
             }
         }
