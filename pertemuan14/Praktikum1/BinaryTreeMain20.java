@@ -29,5 +29,15 @@ public class BinaryTreeMain20 {
         System.out.print("PreOrder Travesal : ");
         bt.traversePreOrder(bt.root);
         System.out.println("");
+
+        // implementasi method baru
+        System.out.println("Nilai terkecil dalam tree: " + bt.findMin());
+        System.out.println("Nilai terbesar dalam tree: " + bt.findMax());
+        System.out.println("Leaf Node: ");
+        bt.tampilLeaf(bt.root);
+        System.out.println(" ");
+
+        int hitungLeafNode = bt.tampilJumlahLeaf(bt.root);
+        System.out.println("Total dari Leaf Node: " + hitungLeafNode);
     }
 }

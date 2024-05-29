@@ -165,4 +165,42 @@ public class BinaryTree20 {
             }
         }
     }
+
+    int findMin() {
+        Node20 current = root;
+        while (current.left != null) {
+            current = current.left;
+        }
+        return current.data;
+    }
+
+    int findMax() {
+        Node20 current = root;
+        while (current.right != null) {
+            current = current.right;
+        }
+        return current.data;
+    }
+
+    void tampilLeaf(Node20 node) {
+        if (node != null) {
+            if (node.left == null && node.right == null) {
+                System.out.print(" " + node.data);
+            } else {
+                tampilLeaf(node.left);
+                tampilLeaf(node.right);
+            }
+        }
+    }
+
+    int tampilJumlahLeaf(Node20 node) {
+        if (node == null) {
+            return 0;
+        } else if (node.left == null && node.right == null) {
+            System.out.println(" " + node.data);
+            return 1;
+        } else {
+            return tampilJumlahLeaf(node.left) + tampilJumlahLeaf(node.right);
+        }
+    }
 }

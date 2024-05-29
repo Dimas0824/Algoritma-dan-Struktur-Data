@@ -1,4 +1,4 @@
-package pertemuan14;
+package pertemuan14.praktikum2;
 
 public class BinaryTreeArrayMain20 {
     public static void main(String[] args) {
@@ -10,5 +10,13 @@ public class BinaryTreeArrayMain20 {
         System.out.print("InOrder Travesal : ");
         bta.traverseInOrder(0);
         System.out.print("\n");
+
+        // implementasi new methods
+        System.out.println("PreOrder Traversal: ");
+        bta.traversePreOrder(0);
+        System.out.println(" ");
+        System.out.println("PostOrder Traversal: ");
+        bta.traversePostOrder(0);
+        System.out.println(" ");
     }
 }

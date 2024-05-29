@@ -341,13 +341,156 @@ Output <br>![alt text](img/optP2.png) <br>
 1. Buat method di dalam class BinaryTree yang akan menambahkan node dengan cara
    rekursif.<br>
    jawab: <br>
+
+```java
+       void add(int data) { // merubah logika pada bagian else agar langsung memanggil method tambahRekursif
+        if (isEmpty()) {
+            root = new Node20(null, data, null);
+        } else {
+            tambahRekursif(root, data);
+        }
+    }
+
+    void tambahRekursif(Node20 current, int data) { // tambahan method tambah secara rekursif
+        if (current == null) {
+            current = new Node20(null, data, null);
+        } else {
+            if (data < current.data) {
+                if (current.left != null) {
+                    tambahRekursif(current.left, data);
+                } else {
+                    current.left = new Node20(null, data, null);
+                }
+            } else if (data > current.data) {
+                if (current.right != null) {
+                    tambahRekursif(current.right, data);
+                } else {
+                    current.right = new Node20(null, data, null);
+                }
+            }
+        }
+    }
+```
+
 2. Buat method di dalam class BinaryTree untuk menampilkan nilai paling kecil dan yang paling besar yang ada di dalam tree.<br>
    jawab: <br>
+
+```java
+    int findMin() {
+        Node20 current = root;
+        while (current.left != null) {
+            current = current.left;
+        }
+        return current.data;
+    }
+
+    int findMax() {
+        Node20 current = root;
+        while (current.right != null) {
+            current = current.right;
+        }
+        return current.data;
+    }
+```
+
 3. Buat method di dalam class BinaryTree untuk menampilkan data yang ada di leaf.<br>
    jawab: <br>
+
+```java
+    void tampilLeaf(Node20 node) {
+        if (node != null) {
+            if (node.left == null && node.right == null) {
+                System.out.print(" " + node.data);
+            } else {
+                tampilLeaf(node.left);
+                tampilLeaf(node.right);
+            }
+        }
+    }
+```
+
 4. Buat method di dalam class BinaryTree untuk menampilkan berapa jumlah leaf yang ada di dalam tree.<br>
    jawab: <br>
+
+```java
+    int tampilJumlahLeaf(Node20 node) {
+        if (node == null) {
+            return 0;
+        } else if (node.left == null && node.right == null) {
+            System.out.println(" " + node.data);
+            return 1;
+        } else {
+            return tampilJumlahLeaf(node.left) + tampilJumlahLeaf(node.right);
+        }
+    }
+}
+```
+
+### Implementasi dari method tambahan nomor 1-4 diatas:
+
+Output <br> ![alt text](img/otpTgs1-4.png)<br>
+
 5. Modifikasi class BinaryTreeArray, dan tambahkan : <br>
    • method add(int data) untuk memasukan data ke dalam tree <br>
    • method traversePreOrder() dan traversePostOrder() <br>
    jawab: <br>
+
+```java
+    public BinaryTreeArray20() {
+        data = new int[10];
+        idxLast = -1; // untuk menunjukkan bahwa array kosong saat inisialisasi
+    }
+
+        void add(int data) {
+        // cek penuh atau tidak
+        if (idxLast == this.data.length - 1) {
+            System.out.println("The Tree is Full");
+            return;
+        }
+        idxLast++;
+        this.data[idxLast] = data;
+    }
+
+    void traversePreOrder(int idxStart) {
+        if (idxStart <= idxLast) {
+            System.out.print(this.data[idxStart] + " ");
+            traversePreOrder(2 * idxStart + 1);
+            traversePreOrder(2 * idxStart + 2);
+        }
+    }
+
+    void traversePostOrder(int idxStart) {
+        if (idxStart <= idxLast) {
+            traversePostOrder(2 * idxStart + 1);
+            traversePostOrder(2 * idxStart + 2);
+            System.out.print(this.data[idxStart] + " ");
+        }
+    }
+```
+
+```java
+    package pertemuan14.praktikum2;
+
+public class BinaryTreeArrayMain20 {
+    public static void main(String[] args) {
+        BinaryTreeArray20 bta = new BinaryTreeArray20();
+
+        int[] data = { 6, 4, 8, 3, 5, 7, 9, 0, 0, 0 };
+        int idxLast = 6;
+        bta.populateData(data, idxLast);
+        System.out.print("InOrder Travesal : ");
+        bta.traverseInOrder(0);
+        System.out.print("\n");
+
+        // implementasi new methods
+        System.out.println("PreOrder Traversal: ");
+        bta.traversePreOrder(0);
+        System.out.println(" ");
+        System.out.println("PostOrder Traversal: ");
+        bta.traversePostOrder(0);
+        System.out.println(" ");
+    }
+}
+```
+
+Output <br>![alt text](img/optTgs5.png) <br>
