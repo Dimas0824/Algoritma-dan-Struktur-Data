@@ -348,3 +348,15 @@ Output<br> ![alt text](img/optP3.png) <br>
 4. Jelaskan perbedaan logika dari kedua kode program di bawah ini!
    <br>![alt text](img/SoalP3no4.png)
    Jawab: Pada gambar (a) Metode isEmpty() ini memeriksa apakah ukuran (size) dari struktur data sama dengan 0. Jika size adalah 0, maka metode ini akan mengembalikan true, yang menunjukkan bahwa struktur data tersebut kosong. Jika tidak, metode ini akan mengembalikan false. Sedangkan pada gambar (b) Metode isEmpty() ini langsung mengembalikan hasil dari perbandingan: apakah referensi head dari struktur data sama dengan null. Jika head adalah null, ini berarti tidak ada elemen dalam struktur data, sehingga metode ini mengembalikan true. Jika tidak, metode ini akan mengembalikan false. <br>
+
+# Tugas
+
+1. Buat program antrian vaksinasi menggunakan queue berbasis double linked list sesuai ilustrasi
+   dan menu di bawah ini! (counter jumlah antrian tersisa di menu cetak(3) dan data orang yang
+   telah divaksinasi di menu Hapus Data(2) harus ada) <br>Output <br> ![alt text](img/OptTgs1.1.png) <br> ![alt text](img/OptTgs1.2.png) <br> ![alt text](img/OptTgs1.3.png) <br>
+
+2. Buatlah program daftar film yang terdiri dari id, judul dan rating menggunakan double linked
+   lists, bentuk program memiliki fitur pencarian melalui ID Film dan pengurutan Rating secara
+   descending. Class Film wajib diimplementasikan dalam soal ini. <br>
+
+Output<br>![alt text](img/optTgs2.1.png) <br>![alt text](img/optTgs2.2.png) <br>![alt text](img/optTgs2.3.png) <br>![alt text](img/optTgs2.4.png) <br>![alt text](img/optTgs2.5.png) <br>
