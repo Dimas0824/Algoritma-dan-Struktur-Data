@@ -1,4 +1,4 @@
-package pertemuan14.Praktikum1;
+package pertemuan15.Praktikum1;
 
 public class BinaryTree20 {
     Node20 root;
