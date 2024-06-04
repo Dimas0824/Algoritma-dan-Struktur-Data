@@ -11,11 +11,6 @@ public class GraphMain20 {
         gedung.addEdge(4, 5, 80);
         try {
             gedung.degree(0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
             gedung.printGraph();
         } catch (Exception e) {
             e.printStackTrace();

@@ -53,7 +53,7 @@ public class Graph20 {
     public void printGraph() throws Exception {
         for (int i = 0; i < vertex; i++) {
             if (list[i].size() > 0) {
-                System.out.print((char) ('A' + i) + "terhubung dengan");
+                System.out.println("Gedung " + (char) ('A' + i) + " terhubung dengan ");
                 for (int j = 0; j < list[i].size(); j++) {
                     System.out.print((char) ('A' + list[i].get(j)) + " (" + list[i].getJarak(j) + " m),");
                 }
