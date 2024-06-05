@@ -369,5 +369,11 @@ Jawab:
    d) Print Graph <br>
    e) Cek Edge <br>
    Pengguna dapat memilih menu program melalui input Scanner <br>
+   Jawab: <br>
+   OUTPUT <br> ![alt text](img/Latprak1.png) ![alt text](img/Latprak2.png)![alt text](img/Latprak3.png)![alt text](img/Latprak4.png)![alt text](img/Latprak5.png)![alt text](img/Latprak6.png)![alt text](img/Latprak7.png)<br>
 2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak antara dua node asal dan tujuan! <br>
+   jawab: <br>
+   Output<br> ![alt text](img/Latprak2.1.png)![alt text](img/Latprak2.2.png)
+
 3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf! <br>
+   jawab: <br>

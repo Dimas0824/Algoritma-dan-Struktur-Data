@@ -52,4 +52,28 @@ public class GraphMatriks20 {
     public int totalDegree(int vertex) {
         return inDegree(vertex) + OutDegree(vertex);
     }
+
+    public void updateJarak(int asal, int tujuan, int jarakBaru) {
+        if (asal >= 0 && asal < vertex && tujuan >= 0 && tujuan < vertex) {
+            if (matriks[asal][tujuan] != -1) {
+                matriks[asal][tujuan] = jarakBaru;
+            } else {
+                System.out.println("Edge dari " + asal + " ke " + tujuan + " tidak ada");
+            }
+        } else {
+            System.out.println("input tidak valid");
+        }
+    }
+
+    public int hitungEdge() {
+        int edge = 0;
+        for (int i = 0; i < vertex; i++) {
+            for (int j = 0; j < vertex; j++) {
+                if (matriks[i][j] != -1) {
+                    edge++;
+                }
+            }
+        }
+        return edge;
+    }
 }
