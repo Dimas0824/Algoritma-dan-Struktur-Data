@@ -1,7 +1,5 @@
 package JobsheetXIIGraph;
 
-import pertemuan13.doublelinkedlist.Node;
-
 public class DoubleLinkedList20 {
     Node20 head;
     int size;
@@ -51,13 +49,17 @@ public class DoubleLinkedList20 {
         while (current != null) {
             if (current.data == index) {
                 if (current.prev == null) {
-                    current.prev.next = current.next;
-                } else {
                     head = current.next;
+                    if (head != null) {
+                        head.prev = null;
+                    }
+                } else {
+                    current.prev.next = current.next;
+                    if (current.next != null) {
+                        current.next.prev = current.prev;
+                    }
                 }
-                if (current.next != null) {
-                    current.next.prev = current.prev;
-                }
+                size--;
                 break;
             }
             current = current.next;
