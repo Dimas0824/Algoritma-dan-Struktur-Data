@@ -249,9 +249,34 @@ Output Langkah 14<br> ![alt text](img/OtpP1.1.png) <br> Output Langkah 17 <br> !
 4. Apakah alasan pemanggilan method addFirst() untuk menambahkan data, bukan method add jenis lain saat digunakan pada method addEdge pada class Graph? <br>
    Jawab: penggunaan addFirst dinilai lebih cepat dan efisien dibanding dengan method add, karena biasanya pada graph tidak memperdulikan urutan dari sebuah simpul dalam list. <br>
 5. Modifikasi kode program sehingga dapat dilakukan pengecekan apakah terdapat jalur antara suatu node dengan node lainnya, seperti contoh berikut (Anda dapat memanfaatkan Scanner). <br>![alt text](img/Soal5.png)
-   Jawab: <br>
+   Jawab: pada program ini saya menambahkan method checkbertetangga untuk melakukan check jika gedung bertetangga atau tidak.
 
-# Praktikum 2
+```java
+    public void checkBertentangga(Graph20 graph, int asal, int tujuan) {
+        boolean bertetangga = false;
+        try {
+            for (int i = 0; i < graph.list[asal].size(); i++) {
+                if (graph.list[asal].get(i) == tujuan) {
+                    bertetangga = true;
+                    break;
+                }
+            }
+            if (bertetangga) {
+                System.out.println(
+                        "Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan) + " bertetangga");
+            } else {
+                System.out.println("Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan)
+                        + " tidak bertetangga.");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+```
+
+<br> OUTPUT <br>![alt text](img/OtpP1P5.png)<br>![alt text](img/OtpP1P5.1.png)
+
+# Praktikum 2: Implementasi Graph menggunakan Matriks
 
 Code<br>
 

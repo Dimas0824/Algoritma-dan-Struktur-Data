@@ -36,11 +36,7 @@ public class Graph20 {
     }
 
     public void removeEdge(int asal, int tujuan) throws Exception {
-        for (int i = 0; i < vertex; i++) {
-            if (i == tujuan) {
-                list[asal].remove(tujuan);
-            }
-        }
+        list[asal].remove(tujuan);
     }
 
     public void removeAllEdges(int asal) throws Exception {
@@ -61,5 +57,26 @@ public class Graph20 {
             }
         }
         System.out.println(" ");
+    }
+
+    public void checkBertentangga(Graph20 graph, int asal, int tujuan) {
+        boolean bertetangga = false;
+        try {
+            for (int i = 0; i < graph.list[asal].size(); i++) {
+                if (graph.list[asal].get(i) == tujuan) {
+                    bertetangga = true;
+                    break;
+                }
+            }
+            if (bertetangga) {
+                System.out.println(
+                        "Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan) + " bertetangga");
+            } else {
+                System.out.println("Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan)
+                        + " tidak bertetangga");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
