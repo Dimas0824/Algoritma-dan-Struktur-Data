@@ -58,10 +58,10 @@ public class GraphMatriks20 {
             if (matriks[asal][tujuan] != -1) {
                 matriks[asal][tujuan] = jarakBaru;
             } else {
-                System.out.println("Edge dari " + asal + " ke " + tujuan + " tidak ada");
+                System.out.println("Edge dari " + (char) ('A' + asal) + " ke " + (char) ('A' + tujuan) + " tidak ada");
             }
         } else {
-            System.out.println("input tidak valid");
+            System.out.println("Input tidak valid");
         }
     }
 
@@ -76,4 +76,5 @@ public class GraphMatriks20 {
         }
         return edge;
     }
+
 }

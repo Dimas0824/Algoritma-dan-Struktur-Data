@@ -377,3 +377,10 @@ Jawab:
 
 3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf! <br>
    jawab: <br>
+   OUTPUT <br> ![alt text](img/Latprak3.1.png) <br>
+   Pada hasil output diatas, method hitungEdge masih menghitung semua matriks yang bernilai != -1, padahal pada GraphMatriks20 elemen matriks diinisialisasi dengan nilai default 0. <br>
+   Disini saya memberikan Perbaikan pada methods GraphMatriks20: <br>
+
+```java
+
+```
