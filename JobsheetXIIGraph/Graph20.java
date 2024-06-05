@@ -79,4 +79,61 @@ public class Graph20 {
             System.out.println(e.getMessage());
         }
     }
+
+    public int inDegree(int vertex) {
+        int inDegree = 0;
+        try {
+            for (int i = 0; i < this.vertex; i++) {
+                for (int j = 0; j < list[i].size(); j++) {
+                    if (list[i].get(j) == vertex) {
+                        inDegree++;
+                        break;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return inDegree;
+    }
+
+    public int outDegree(int vertex) {
+        return list[vertex].size();
+    }
+
+    public int totalDegree(int vertex) {
+        return inDegree(vertex) + outDegree(vertex);
+    }
+
+    public void updateJarak(int asal, int tujuan, int jarakBaru) {
+        try {
+            int index = -1;
+            // Mencari index tujuan di dalam list[asal]
+            for (int i = 0; i < list[asal].size(); i++) {
+                if (list[asal].get(i) == tujuan) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index != -1) {
+                // Update jarak
+                list[asal].setJarak(index, jarakBaru);
+                System.out.println("Jarak antara Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan)
+                        + " berhasil diupdate menjadi " + jarakBaru + " m");
+            } else {
+                System.out.println(
+                        "Gedung " + (char) ('A' + asal) + " tidak terhubung dengan Gedung " + (char) ('A' + tujuan));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public int hitungEdge() {
+        int totalEdge = 0;
+        for (int i = 0; i < vertex; i++) {
+            totalEdge += list[i].size();
+        }
+        return totalEdge;
+    }
 }

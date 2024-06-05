@@ -369,28 +369,76 @@ Jawab:
    d) Print Graph <br>
    e) Cek Edge <br>
    Pengguna dapat memilih menu program melalui input Scanner <br>
-   Jawab: <br>
-   OUTPUT <br> ![alt text](img/Latprak1.png) ![alt text](img/Latprak2.png)![alt text](img/Latprak3.png)![alt text](img/Latprak4.png)![alt text](img/Latprak5.png)![alt text](img/Latprak6.png)![alt text](img/Latprak7.png)<br>
-2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak antara dua node asal dan tujuan! <br>
-   jawab: <br>
-   Output<br> ![alt text](img/Latprak2.1.png)![alt text](img/Latprak2.2.png)
-
-3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf! <br>
-   jawab: <br>
-   OUTPUT <br> ![alt text](img/Latprak3.1.png) <br>
-   Pada hasil output diatas, method hitungEdge masih menghitung semua matriks yang bernilai != -1, padahal pada GraphMatriks20 elemen matriks diinisialisasi dengan nilai default 0. <br>
-   Disini saya memberikan Perbaikan pada methods GraphMatriks20: <br>
+   Jawab: terdapat methods baru untuk cek degree<br>
 
 ```java
-public GraphMatriks20(int v) {
-        vertex = v;
-        matriks = new int[v][v];
-        for (int i = 0; i < v; i++) {
-            for (int j = 0; j < v; j++) {
-                matriks[i][j] = -1;
+   public int inDegree(int vertex) {
+        int inDegree = 0;
+        try {
+            for (int i = 0; i < this.vertex; i++) {
+                for (int j = 0; j < list[i].size(); j++) {
+                    if (list[i].get(j) == vertex) {
+                        inDegree++;
+                        break;
+                    }
+                }
             }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return inDegree;
+    }
+
+    public int outDegree(int vertex) {
+        return list[vertex].size();
+    }
+
+    public int totalDegree(int vertex) {
+        return inDegree(vertex) + outDegree(vertex);
+    }
+
+```
+
+OUTPUT <br> ![alt text](img/Latprak1.png)![alt text](img/Latprak2.png)![alt text](img/Latprak3.png)![alt text](img/Latprak4.png)![alt text](img/Latprak5.png)![alt text](img/Latprak6.png)![alt text](img/Latprak7.png) <br> 2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak antara dua node asal dan tujuan! <br>
+jawab: <br>
+
+```java
+   public void updateJarak(int asal, int tujuan, int jarakBaru) {
+        try {
+            int index = -1;
+            // Mencari index tujuan di dalam list[asal]
+            for (int i = 0; i < list[asal].size(); i++) {
+                if (list[asal].get(i) == tujuan) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index != -1) {
+                // Update jarak
+                list[asal].setJarak(index, jarakBaru);
+                System.out.println("Jarak antara Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan)
+                        + " berhasil diupdate menjadi " + jarakBaru + " m");
+            } else {
+                System.out.println(
+                        "Gedung " + (char) ('A' + asal) + " tidak terhubung dengan Gedung " + (char) ('A' + tujuan));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 ```
 
-OUTPUT <br> ![alt text](img/Latprak3.2.png)![alt text](img/Laptrak3.3.png)
+Output<br>![alt text](img/Laptrak2.1.png)![alt text](img/Latprak2.2.png) <br> 3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf! <br>
+jawab: <br>
+
+```java
+ public int hitungEdge() {
+        int totalEdge = 0;
+        for (int i = 0; i < vertex; i++) {
+            totalEdge += list[i].size();
+        }
+        return totalEdge;
+    }
+```
+
+OUTPUT <br>![alt text](img/Latprak3.1.png)

@@ -44,12 +44,23 @@ public class DoubleLinkedList20 {
         return tmp.jarak;
     }
 
+    public void setJarak(int index, int jarakBaru) throws Exception {
+        if (isEmpty() || index >= size) {
+            throw new Exception("Nilai indeks di luar batas");
+        }
+        Node20 tmp = head;
+        for (int i = 0; i < index; i++) {
+            tmp = tmp.next;
+        }
+        tmp.jarak = jarakBaru;
+    }
+
     public void remove(int index) {
         Node20 current = head;
         while (current != null) {
             if (current.data == index) {
-                if (current.prev == null) { // current is the head node
-                    head = current.next; // move head to the next node
+                if (current.prev == null) {
+                    head = current.next;
                     if (head != null) {
                         head.prev = null;
                     }
