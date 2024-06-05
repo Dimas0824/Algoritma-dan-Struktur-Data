@@ -7,6 +7,11 @@ public class GraphMatriks20 {
     public GraphMatriks20(int v) {
         vertex = v;
         matriks = new int[v][v];
+        for (int i = 0; i < v; i++) {
+            for (int j = 0; j < v; j++) {
+                matriks[i][j] = -1;
+            }
+        }
     }
 
     public void makeEdge(int asal, int tujuan, int jarak) {
@@ -57,6 +62,16 @@ public class GraphMatriks20 {
         if (asal >= 0 && asal < vertex && tujuan >= 0 && tujuan < vertex) {
             if (matriks[asal][tujuan] != -1) {
                 matriks[asal][tujuan] = jarakBaru;
+                for (int i = 0; i < vertex; i++) {
+                    System.out.println("Gedung " + (char) ('A' + i) + ": ");
+                    for (int j = 0; j < vertex; j++) {
+                        if (matriks[i][j] != -1) {
+                            System.out.print("Gedung " + (char) ('A' + j) + " (" + matriks[i][j] + " m), ");
+                        }
+                    }
+                    System.out.println();
+                }
+                System.out.println();
             } else {
                 System.out.println("Edge dari " + (char) ('A' + asal) + " ke " + (char) ('A' + tujuan) + " tidak ada");
             }

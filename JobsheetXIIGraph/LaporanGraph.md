@@ -382,5 +382,15 @@ Jawab:
    Disini saya memberikan Perbaikan pada methods GraphMatriks20: <br>
 
 ```java
-
+public GraphMatriks20(int v) {
+        vertex = v;
+        matriks = new int[v][v];
+        for (int i = 0; i < v; i++) {
+            for (int j = 0; j < v; j++) {
+                matriks[i][j] = -1;
+            }
+        }
+    }
 ```
+
+OUTPUT <br> ![alt text](img/Latprak3.2.png)![alt text](img/Laptrak3.3.png)
