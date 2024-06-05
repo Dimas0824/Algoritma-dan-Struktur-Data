@@ -6,38 +6,23 @@ public class GraphMain20 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        Graph20 gedung = new Graph20(6);
+        GraphMatriks20 gdg = new GraphMatriks20(4);
+        gdg.makeEdge(0, 1, 50);
+        gdg.makeEdge(1, 0, 60);
+        gdg.makeEdge(1, 2, 70);
+        gdg.makeEdge(2, 1, 80);
+        gdg.makeEdge(2, 3, 40);
+        gdg.makeEdge(3, 0, 90);
+        gdg.printGraph();
+        System.out.println("Hasil setelah penghapusan edge");
+        gdg.removeEdge(2, 1);
+        gdg.printGraph();
 
-        // Menambahkan edge awal
-        gedung.addEdge(0, 1, 50);
-        gedung.addEdge(0, 2, 100);
-        gedung.addEdge(1, 3, 70);
-        gedung.addEdge(2, 3, 40);
-        gedung.addEdge(3, 4, 60);
-        gedung.addEdge(4, 5, 80);
+        System.out.println();
+        System.out.println("InDegree dari Gedung A: " + gdg.inDegree(0));
+        System.out.println("OutDegree dari Gedung A: " + gdg.OutDegree(0));
+        System.out.println("Total Degree dari Gedung A: " + gdg.totalDegree(0));
 
-        try {
-            gedung.degree(0);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        System.out.print("Masukkan Gedung asal: ");
-        int asal = sc.nextInt();
-
-        System.out.print("Masukkan Gedung tujuan: ");
-        int tujuan = sc.nextInt();
-
-        if (asal == tujuan) {
-            System.out.println("Gedung " + (char) ('A' + asal) + " dan Gedung " + (char) ('A' + tujuan) + " sama!");
-            return;
-        }
-
-        try {
-            gedung.checkBertentangga(gedung, asal, tujuan);
-            gedung.addEdge(asal, tujuan, 0);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        sc.close();
     }
 }

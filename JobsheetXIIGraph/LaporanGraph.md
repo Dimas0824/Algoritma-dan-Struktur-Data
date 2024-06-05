@@ -281,17 +281,93 @@ Output Langkah 14<br> ![alt text](img/OtpP1.1.png) <br> Output Langkah 17 <br> !
 Code<br>
 
 ```java
+package JobsheetXIIGraph;
 
+public class GraphMatriks20 {
+    int vertex;
+    int[][] matriks;
+
+    public GraphMatriks20(int v) {
+        vertex = v;
+        matriks = new int[v][v];
+    }
+
+    public void makeEdge(int asal, int tujuan, int jarak) {
+        matriks[asal][tujuan] = jarak;
+    }
+
+    public void removeEdge(int asal, int tujuan) {
+        matriks[asal][tujuan] = -1;
+    }
+
+    public void printGraph() {
+        for (int i = 0; i < vertex; i++) {
+            System.out.println("Gedung " + (char) ('A' + i) + ": ");
+            for (int j = 0; j < vertex; j++) {
+                if (matriks[i][j] != -1) {
+                    System.out.print("Gedung " + (char) ('A' + j) + " (" + matriks[i][j] + " m), ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
 ```
 
-Output<br>
+Output<br>![alt text](img/OtpP2.png)
 
-# Praktikum 3
+## Pertanyaan
 
-Code<br>
+1. Perbaiki kode program Anda apabila terdapat error atau hasil kompilasi kode tidak sesuai! <br>
+   Jawab: program tidak memiliki kesalahan, hasil kompilasi benar saat dilakukan verifikasi. <br>
+2. Apa jenis graph yang digunakan pada Percobaan 2?<br>
+   Jawab: kode program diatas merupakan directed weighted graph yang direpresentasikan menggunakan adjancency matrix. Menggunakan directed graph karena edge dibuat satu arah pada method makeEdge. Weighted graph karena ada bobot pada setiap edge yang ditambahkan. <br>
+3. Apa maksud dari dua baris kode berikut?<br>
 
 ```java
-
+gdg.makeEdge(1,2,70);
+gdg.makeEdge(2,1,80);
 ```
 
-Output<br>
+Jawab: kode 'gdg.makeEdge(1,2,70)' merupakan kode untuk membuat edge dari vertex 1 ke 2 dengan bobot(jarak) 70. sedangkan pada kode baris ke dua membuat edge dari vertex 2 ke 1 dengan bobot(80). Kedua program sama membuat edge tetapi memiliki arah yang berbeda. <br> 4. Modifikasi kode program sehingga terdapat method untuk menghitung degree, termasuk inDegree dan outDegree!<br>
+Jawab:
+
+```java
+    public int inDegree(int vertex) {
+        int inDegree = 0;
+        for (int i = 0; i < this.vertex; i++) {
+            if (matriks[i][vertex] != -1) {
+                inDegree++;
+            }
+        }
+        return inDegree;
+    }
+
+    public int OutDegree(int vertex) {
+        int outDegree = 0;
+        for (int i = 0; i < this.vertex; i++) {
+            if (matriks[vertex][i] != -1) {
+                outDegree++;
+            }
+        }
+        return outDegree;
+    }
+
+    public int totalDegree(int vertex) {
+        return inDegree(vertex) + OutDegree(vertex);
+    }
+```
+
+<br> OUTPUT <br>![alt text](img/OtpP2.5.png)
+
+# Latihan Praktikum
+
+1. Modifikasi kode program pada class GraphMain sehingga terdapat menu program yang bersifat dinamis, setidaknya terdiri dari: <br>
+   a) Add Edge <br>
+   b) Remove Edge <br>
+   c) Degree <br>
+   d) Print Graph <br>
+   e) Cek Edge <br>
+   Pengguna dapat memilih menu program melalui input Scanner <br>
+2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak antara dua node asal dan tujuan! <br>
+3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf! <br>
